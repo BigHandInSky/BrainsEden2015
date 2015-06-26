@@ -20,6 +20,8 @@ public class GameStateHandler : MonoBehaviour
             m_Instance = this;
 
         //setup game
+        LastMissile(MissileTypes.None);
+        SetNautsUI();
 
         //random pick who starts
         if (Random.Range(0, 1f) > 0.49f)
@@ -27,8 +29,8 @@ public class GameStateHandler : MonoBehaviour
         else
             CurrentState = GameState.Blue;
 
-        SetNautsUI();
         SwitchState();
+
     }
 
     public bool nauts_ui_debug = false;
@@ -177,11 +179,13 @@ public class GameStateHandler : MonoBehaviour
     {
         if(CurrentState == GameState.Start)
         {
+            Debug.Log("lastmissile start");
             m_RedMissileInd.sprite = m_MissileNone;
             m_BluMissileInd.sprite = m_MissileNone;
             return;
         }
-        else if(CurrentState == GameState.Red)
+        
+        if(CurrentState == GameState.Red)
         {
             switch (_type)
             {
