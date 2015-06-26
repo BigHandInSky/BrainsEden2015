@@ -17,7 +17,7 @@ public class CollisionDetection : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.name == "Rocket") 
+		if (col.gameObject.name == "SuckingRocket") 
 		{
 			Destroy(gameObject);
 		}
