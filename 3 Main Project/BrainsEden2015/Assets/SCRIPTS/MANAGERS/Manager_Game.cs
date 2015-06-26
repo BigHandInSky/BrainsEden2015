@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//use this to control across-scene game values, such as scores
+//use this to control across-scene game values, such as scores if we need it
 
 public class Manager_Game : MonoBehaviour 
 {
