@@ -38,4 +38,6 @@ public class Manager_Game : MonoBehaviour
         Debug.Log(Application.loadedLevelName);
         Application.LoadLevel(_sceneNum);
     }
+    //Basic exit, can be used for saving data if we want it later
+    public void ExitGame() { Application.Quit(); }
 }

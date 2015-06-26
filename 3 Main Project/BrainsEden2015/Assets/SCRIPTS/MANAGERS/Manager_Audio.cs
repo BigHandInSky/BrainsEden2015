@@ -19,6 +19,7 @@ public class Manager_Audio : MonoBehaviour
             m_Instance = this;
     }
 
+    //if value is at 0 it is effectively off, so no bools
     public static float EffectsVol = 1f;
     public static float MusicVol = 1f;
     public static float AltEffVol { get { return EffectsVol * 100f; } set { EffectsVol = value * 0.01f; } }
