@@ -19,7 +19,7 @@ public class CollisionDetection : MonoBehaviour {
 	{
 		if (col.gameObject.name == "SuckingRocket") 
 		{
-			Destroy(gameObject);
+			Destroy(col.gameObject);
 		}
 	}
 }

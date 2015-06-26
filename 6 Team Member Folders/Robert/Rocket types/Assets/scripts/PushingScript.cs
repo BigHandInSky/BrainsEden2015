@@ -32,7 +32,7 @@ public class PushingScript : MonoBehaviour {
 			for(int i=0; i < fragments.Capacity; i++){
 				
 				Vector3 velocity = transform.position + fragments[i].transform.position;
-				fragments[i].GetComponent<Rigidbody>().AddForce(velocity* 5);
+				fragments[i].GetComponent<Rigidbody>().AddForce(velocity* 10);
 				
 				//Vector3 move = new Vector3 (transform.position.x + moveTowards, transform.position.y, transform.position.z);
 				//transform.position = move;
