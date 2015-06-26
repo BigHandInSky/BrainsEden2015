@@ -1,0 +1,82 @@
+///// Jam Plan
+Overall this is mainly for practice and to get a somewhat full game to take away and show off
+
+- 30 min
+	brainstorm ideas
+		everyone thinks of up to 3
+		picks one
+		develops the idea
+		we bring them together
+		pose it
+		best idea or most achievable
+
+- 1 hr in
+	crack chosen idea to smallest tasks
+
+- by friday night
+	basic gameplay
+
+- by saturday night
+	UI
+	scenes
+	gameplay to a point where it can be refined
+	audio
+	
+- by sunday
+	'full' game
+
+///// PROGRAMMING
+Player
+
+Abilities
+
+Other Agents (i.e. Enemies)
+	- ?  iiii i i
+
+World
+	- EffectObj
+	- MusicObj
+	
+Managers
+	- What GameManager controls
+
+UI
+	ButtonControls
+		- SetVolume
+		- SetAudioBool
+		- ChangeScene
+		- Play Audio
+
+///// ASSETS
+
+2D
+	Art
+		Icon
+		Cursor
+		
+	Particle Effects
+		
+	UI
+		ButtonSliced
+		Title
+		Credits
+		Loading...
+3D
+	Objects
+	Textures
+	Animations
+
+///// AUDIO
+
+Effects
+	
+
+Music
+	InGameA
+	InGameB
+	OutGame
+
+///// ADMIN
+	Readme
+	Game Page details
+	Gamejolt Page
