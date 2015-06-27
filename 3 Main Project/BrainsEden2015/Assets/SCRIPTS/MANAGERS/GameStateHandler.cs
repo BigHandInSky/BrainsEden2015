@@ -75,8 +75,7 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private Sprite m_MissileVictory;
     [SerializeField] private Sprite m_MissileFail;
 
-    [SerializeField] private Light m_RedSideLight;
-    [SerializeField] private Light m_BluSideLight;
+    [SerializeField] private Text m_ControlsText;
 
     public bool nauts_ui_debug = false;
     public bool switch_debug = false;
@@ -114,6 +113,7 @@ public class GameStateHandler : MonoBehaviour
         }
 
         m_StatesRan++;
+        m_ControlsText.color = new Color(1f, 1f, 1f, (10 - m_StatesRan) * 0.1f);
 
         if (m_StatesRan % 3 == 0)
             Asteroid();
@@ -123,8 +123,6 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Blue;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
-            m_RedSideLight.intensity = 1.5f;
-            m_BluSideLight.intensity = 2f;
             m_RedTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(false);
@@ -140,8 +138,6 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Red;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
-            m_RedSideLight.intensity = 2f;
-            m_BluSideLight.intensity = 1.5f;
             m_BluTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(true);

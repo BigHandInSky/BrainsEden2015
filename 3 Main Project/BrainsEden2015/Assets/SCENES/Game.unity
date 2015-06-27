@@ -1106,6 +1106,10 @@ Prefab:
       propertyPath: m_BluTargeter
       value: 
       objectReference: {fileID: 241431818}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_ControlsText
+      value: 
+      objectReference: {fileID: 1021677226}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0
@@ -1581,7 +1585,9 @@ MonoBehaviour:
 
     Space - Charge, Release to Fire
 
-    1-4 - Change Rocket Type'
+    1-4 - Change Rocket Type
+
+    Esc - Return to Menu'
 --- !u!222 &1021677227
 CanvasRenderer:
   m_ObjectHideFlags: 0
