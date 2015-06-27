@@ -12,6 +12,7 @@ public class GameStateHandler : MonoBehaviour
     private static GameStateHandler m_Instance;
     public static GameStateHandler Instance { get { return m_Instance; } }
 
+
     void Awake()
     {
         if (m_Instance != null && m_Instance != this)
@@ -32,6 +33,9 @@ public class GameStateHandler : MonoBehaviour
         SwitchState();
 
     }
+
+	public PlayerTarget redPlayerMove;
+	public PlayerTarget bluPlayerMove;
 
     public bool nauts_ui_debug = false;
     public bool switch_debug = false;
@@ -105,12 +109,24 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Blue;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
+
+			redPlayerMove.enabled = false; //disable red player script
+			if (!bluPlayerMove.enabled) //check if blue already active
+			{
+				bluPlayerMove.enabled = true; //make active if isn't
+			}
         }
         else if (CurrentState == GameState.Blue)
         {
             CurrentState = GameState.Red;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
+
+			bluPlayerMove.enabled = false;
+			if (!redPlayerMove.enabled)
+			{
+				redPlayerMove.enabled = true;
+			}
         }
     }
     private void EndGame()
