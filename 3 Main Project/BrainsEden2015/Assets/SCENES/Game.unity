@@ -978,6 +978,14 @@ Prefab:
       propertyPath: m_BluMissileInd
       value: 
       objectReference: {fileID: 1121080292}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: redPlayerMove
+      value: 
+      objectReference: {fileID: 21636631}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: bluPlayerMove
+      value: 
+      objectReference: {fileID: 54946835}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0
