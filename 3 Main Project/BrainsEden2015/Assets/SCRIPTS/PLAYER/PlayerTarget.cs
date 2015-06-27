@@ -24,6 +24,7 @@ public class PlayerTarget : MonoBehaviour {
 
 	public bool spaceKeyDown = false;
 	
+
 	void Update() 
     {
 		float anglePlayer = Mathf.Atan2(transform.up.y, transform.up.x) * 180 / 3.14f;
@@ -32,20 +33,22 @@ public class PlayerTarget : MonoBehaviour {
             return;
 		
 		if (Input.GetKey (KeyCode.A)) {
-			if(transform.eulerAngles.z <= 270 && transform.tag == "LauncherBLUE")
+			transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			/*if(transform.eulerAngles.z <= 270 && transform.tag == "LauncherBLUE")
 				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(anglePlayer <= 180 && anglePlayer > 0 && transform.tag == "LauncherRED")
+			else if(transform.tag == "LauncherRED")
 			{
-					transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
-			}
+				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			}*/
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-			if(transform.eulerAngles.z >= 90 && transform.tag == "LauncherBLUE")
+			transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			/*if(transform.eulerAngles.z >= 90 && transform.tag == "LauncherBLUE")
 				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(anglePlayer >= 0 && transform.tag == "LauncherRED")
+			else if(transform.tag == "LauncherRED")
 			{
 				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			}
+			}*/
 		}
 
 
@@ -54,6 +57,9 @@ public class PlayerTarget : MonoBehaviour {
 		}
 		if(spaceKeyDown){
 			rocketPower += Time.deltaTime;
+			if(transform.Find("Cannon/AimGuide").transform.localPosition.y < 2)
+				transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,transform.Find("Cannon/AimGuide").transform.localPosition.y + Time.deltaTime,0);
+
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
@@ -61,6 +67,7 @@ public class PlayerTarget : MonoBehaviour {
 			SpawnRocket ();
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
+			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,0,0);
 		}
 		delayTimer -= Time.deltaTime;
 	}
