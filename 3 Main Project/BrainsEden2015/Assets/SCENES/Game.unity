@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 199402, guid: fc00c642d3952b4429dad57d6d09bf77, type: 2}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1900671938}
   moveSpeed: 5
   rocketSpeed: 10
   delayTimer: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 199402, guid: fc00c642d3952b4429dad57d6d09bf77, type: 2}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 821854583}
   moveSpeed: 5
   rocketSpeed: 10
   delayTimer: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RotateX: 0
-  m_RotateY: 1
+  m_RotateY: 0
   m_RotateZ: 0
   m_RotateSpeeds: {x: 1, y: 5, z: 1}
 --- !u!1 &821854583
