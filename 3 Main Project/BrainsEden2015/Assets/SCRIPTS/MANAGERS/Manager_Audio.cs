@@ -17,7 +17,13 @@ public class Manager_Audio : MonoBehaviour
             DestroyObject(this.gameObject);
         else
             m_Instance = this;
+
+        ObjToSpawnUnder = Camera.main.gameObject;
+        StartCoroutine(MusicRoutine());
     }
+
+    [SerializeField] private GameObject ObjToSpawn;
+    private GameObject ObjToSpawnUnder;
 
     //if value is at 0 it is effectively off, so no bools
     public static float EffectsVol = 1f;
@@ -36,37 +42,59 @@ public class Manager_Audio : MonoBehaviour
         Example
     }
 
-    public AudioClip GetEffect(EffectsType _clip)
+    public void PlayEffect(EffectsType _type)
     {
-        AudioClip _temp = new AudioClip();
-
-        switch(_clip)
-        {
-            case EffectsType.Button:
-                _temp = Effects[0];
-                break;
-            case EffectsType.Example:
-                _temp = Effects[1];
-                break;
-        }
-
-        return _temp;
+        SelectClip(_type);
     }
-    //the above but this allows for calling with inspector, e.g. linking a button
-    public AudioClip GetEffect(int _clip)
+    public void PlayEffect(int _type)
     {
-        AudioClip _temp = new AudioClip();
+        SelectClip((EffectsType)_type);
+    }
+    private void SelectClip(EffectsType _clipType)
+    {
+        int _selected = 0;
 
-        switch ((EffectsType)_clip)
+        switch (_clipType)
         {
             case EffectsType.Button:
-                _temp = Effects[0];
-                break;
-            case EffectsType.Example:
-                _temp = Effects[1];
+                _selected = 0;
                 break;
         }
 
-        return _temp;
+        CreateObj(Effects[_selected]);
+    }
+
+    IEnumerator MusicRoutine()
+    {
+        GameObject _lastClone = new GameObject("MusicRoutineTemp");
+        int _lastTrack = 0;
+
+        while(true)
+        {
+            if (Music.Count < 1)
+                break;
+
+            if (_lastClone == null)
+            {
+                _lastClone = (GameObject)Instantiate(ObjToSpawn);
+                _lastClone.transform.parent = ObjToSpawnUnder.transform;
+                _lastClone.transform.localPosition = Vector3.zero;
+                _lastClone.GetComponent<AudioObj>().Setup(Music[_lastTrack], true);
+
+                _lastTrack++;
+                if (_lastTrack == Music.Count)
+                    _lastTrack = 0;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void CreateObj(AudioClip _clipToPlay)
+    {
+        GameObject _clone = Instantiate(ObjToSpawn);
+        _clone.transform.parent = ObjToSpawnUnder.transform;
+        _clone.transform.localPosition = Vector3.zero;
+        _clone.GetComponent<AudioObj>().Setup(_clipToPlay, false);
     }
 }

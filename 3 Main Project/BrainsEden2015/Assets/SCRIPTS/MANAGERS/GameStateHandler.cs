@@ -126,7 +126,7 @@ public class GameStateHandler : MonoBehaviour
         m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
         m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         if (CurrentState == GameState.Red) //Switch to Blu Player
         {
