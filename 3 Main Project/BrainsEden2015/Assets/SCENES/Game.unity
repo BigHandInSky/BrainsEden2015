@@ -896,6 +896,14 @@ Prefab:
       propertyPath: m_MainLight
       value: 
       objectReference: {fileID: 92051076}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_RedSideLight
+      value: 
+      objectReference: {fileID: 92051076}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_BluSideLight
+      value: 
+      objectReference: {fileID: 1325956597}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0
@@ -1707,6 +1715,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323440318}
+--- !u!108 &1325956597 stripped
+Light:
+  m_PrefabParentObject: {fileID: 10814556, guid: 8fcd5eaa2f6a07349ac3908a390d18ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 323547915}
 --- !u!1 &1468880909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,6 +2359,10 @@ Prefab:
     - target: {fileID: 426116, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
