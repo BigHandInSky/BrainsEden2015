@@ -4325,5 +4325,55 @@
          id="rect4234-1"
          style="opacity:1;fill:#ececec;fill-opacity:1;stroke:none;stroke-width:16;stroke-opacity:1" />
     </g>
+    <rect
+       style="opacity:0.5;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1"
+       id="rect8196"
+       width="202"
+       height="202"
+       x="1762"
+       y="-573.63782"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\RocketSmoke_BLU.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\RocketSmoke_RED.png"
+       y="-573.63782"
+       x="1985.4458"
+       height="202"
+       width="202"
+       id="rect8198"
+       style="opacity:0.5;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1" />
+    <rect
+       style="opacity:0.5;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1"
+       id="rect8200"
+       width="202"
+       height="202"
+       x="2211.72"
+       y="-573.63782"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\ISS_Boom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\ISS_Boom2.png"
+       y="-358.67737"
+       x="2211.72"
+       height="202"
+       width="202"
+       id="rect8202"
+       style="opacity:0.5;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1" />
+    <rect
+       style="opacity:0.75;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1"
+       id="rect8204"
+       width="202"
+       height="202"
+       x="2449.3079"
+       y="-358.67737"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\ISS_Boom3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

@@ -118,6 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475e085619fa82b42a447eec57ea8da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 15
+  m_SmokeEffect: {fileID: 179720, guid: eb1f43a56696de343a65ee7ce3ab7ac8, type: 2}
+  m_EarthCollideEffect: {fileID: 118182, guid: 68e9a084932e33d4dbc0c108a95ada67, type: 2}
 --- !u!114 &11467890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,6 +162,14 @@ Prefab:
       propertyPath: maxDistance
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EarthCollideEffect
+      value: 
+      objectReference: {fileID: 118182, guid: 68e9a084932e33d4dbc0c108a95ada67, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_SmokeEffect
+      value: 
+      objectReference: {fileID: 179720, guid: eb1f43a56696de343a65ee7ce3ab7ac8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146248}

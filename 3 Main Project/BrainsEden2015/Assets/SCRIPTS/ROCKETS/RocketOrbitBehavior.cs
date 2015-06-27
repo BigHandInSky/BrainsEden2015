@@ -8,10 +8,24 @@ public class RocketOrbitBehavior : MonoBehaviour {
 	float GravIntensity = 1.8f;
 	float timer = 0;
 
+    [SerializeField] private GameObject m_SmokeEffect;
+    [SerializeField] private GameObject m_EarthCollideEffect;
+
+    void Start()
+    {
+        m_SmokeEffect = Instantiate(m_SmokeEffect);
+        m_SmokeEffect.transform.parent = GetComponent<Transform>();
+        m_SmokeEffect.transform.localPosition = Vector3.zero;
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		timer += Time.deltaTime;
+        if (timer < 4f)
+            timer += Time.deltaTime;
+        else if (m_SmokeEffect)
+            DestroyObject(m_SmokeEffect);
+
 		if(GravIntensity > 1)
 			GravIntensity *= 0.995f;
 
@@ -26,7 +40,10 @@ public class RocketOrbitBehavior : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.name == "World")
+        {
+            Instantiate(m_EarthCollideEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
+        }
 	}
 	void OnCollisionEnter(Collision other) {
 		maxSpeed -= 2f;
