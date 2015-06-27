@@ -8,6 +8,8 @@ public class PlayerTarget : MonoBehaviour {
 	
 	public float moveSpeed = 5;
 	public float rocketSpeed = 10;
+
+	public float delayTimer = 0;
 	
 	void Update() {
 		
@@ -32,7 +34,7 @@ public class PlayerTarget : MonoBehaviour {
 		}
 		
 		
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.Space) && delayTimer <=0 ) {
 			
 			GameObject bullet = (GameObject)Instantiate(bulletPrefab,muzzle.transform.position, Quaternion.identity);
 			
@@ -45,7 +47,9 @@ public class PlayerTarget : MonoBehaviour {
 			Vector3 velocity = muzzle.transform.up * rocketSpeed;
 			bullet.GetComponent<Rigidbody>().velocity = velocity;
 			bullet.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
+			delayTimer = 0.5f;
 		}
+		delayTimer -= Time.deltaTime;
 	}
 	
 }
