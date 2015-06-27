@@ -3,16 +3,10 @@ using System.Collections;
 
 public class RocketOrbitBehavior : MonoBehaviour {
 	
-	
+	public float maxSpeed = 15;
+
 	float GravIntensity = 1.8f;
-	float maxSpeed = 9;
 	float timer = 0;
-
-	bool stage1 = false;
-	bool stage2 = false;
-	bool stage3 = false;
-
-	float angleSpeed = 1;
 
 	// Update is called once per frame
 	void FixedUpdate () {
