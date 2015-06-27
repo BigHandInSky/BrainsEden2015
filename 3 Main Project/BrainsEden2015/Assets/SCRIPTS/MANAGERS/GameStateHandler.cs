@@ -37,30 +37,6 @@ public class GameStateHandler : MonoBehaviour
 	public PlayerTarget redPlayerMove;
 	public PlayerTarget bluPlayerMove;
 
-    public bool nauts_ui_debug = false;
-    public bool switch_debug = false;
-    public bool win_debug = false;
-    void Update()
-    {
-        if (nauts_ui_debug)
-        {
-            nauts_ui_debug = false;
-            SetNautsUI();
-        }
-
-        if (switch_debug)
-        {
-            switch_debug = false;
-            SwitchState();
-        }
-
-        if (win_debug)
-        {
-            win_debug = false;
-            EndGame();
-        }
-    }
-
     public enum GameState
     {
         Start,
@@ -90,7 +66,35 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private Sprite m_MissilePull;
     [SerializeField] private Sprite m_MissileVictory;
     [SerializeField] private Sprite m_MissileFail;
-    
+
+
+    public bool nauts_ui_debug = false;
+    public bool switch_debug = false;
+    public bool win_debug = false;
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Manager_Game.Instance.ChangeScene(1);
+
+        if (nauts_ui_debug)
+        {
+            nauts_ui_debug = false;
+            SetNautsUI();
+        }
+
+        if (switch_debug)
+        {
+            switch_debug = false;
+            SwitchState();
+        }
+
+        if (win_debug)
+        {
+            win_debug = false;
+            EndGame();
+        }
+    }
+
     public void SwitchState()
     {
         if (Mathf.Abs(NautsBalance) == 3)
@@ -104,7 +108,7 @@ public class GameStateHandler : MonoBehaviour
         if (m_StatesRan % 3 == 0)
             Asteroid();
 
-        if (CurrentState == GameState.Red)
+        if (CurrentState == GameState.Red) //Switch to Blu Player
         {
             CurrentState = GameState.Blue;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
@@ -116,7 +120,7 @@ public class GameStateHandler : MonoBehaviour
 				bluPlayerMove.enabled = true; //make active if isn't
 			}
         }
-        else if (CurrentState == GameState.Blue)
+        else if (CurrentState == GameState.Blue) //Switch to Red Player
         {
             CurrentState = GameState.Red;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
@@ -196,8 +200,8 @@ public class GameStateHandler : MonoBehaviour
         if(CurrentState == GameState.Start)
         {
             Debug.Log("lastmissile start");
-            m_RedMissileInd.sprite = m_MissileNone;
-            m_BluMissileInd.sprite = m_MissileNone;
+            m_RedMissileInd.sprite = m_MissileNaut;
+            m_BluMissileInd.sprite = m_MissileNaut;
             return;
         }
         
