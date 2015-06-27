@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 40
+  minDistance: 10
 --- !u!114 &11440622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +130,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: maxDistance
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minDistance
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

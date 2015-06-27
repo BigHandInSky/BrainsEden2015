@@ -4,6 +4,7 @@ using System.Collections;
 public class DestoryAtDistance : MonoBehaviour {
 	
 	public float maxDistance;
+	public float minDistance;
 
 	// Update is called once per frame
 	void Update () 
@@ -13,6 +14,11 @@ public class DestoryAtDistance : MonoBehaviour {
 		if (distance >= maxDistance) 
 		{
 			Destroy(gameObject);
+		}
+
+		if (distance <= minDistance) 
+		{
+			Destroy (gameObject);
 		}
 	}
 }
