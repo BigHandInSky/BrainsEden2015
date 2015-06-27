@@ -6,7 +6,10 @@ public class PlayerTarget : MonoBehaviour {
     [SerializeField] private GameObject m_RocketNaut;
     [SerializeField] private GameObject m_RocketJunk;
     [SerializeField] private GameObject m_RocketSprd;
-    [SerializeField] private GameObject m_RocketPull;	
+    [SerializeField] private GameObject m_RocketPull;
+
+    [SerializeField] private GameObject m_AimGuide;
+    public GameObject GetGuide { get { return m_AimGuide; } }
 
 	public GameObject bulletPrefab;
 	public GameObject muzzle;
@@ -73,5 +76,4 @@ public class PlayerTarget : MonoBehaviour {
 			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 		}
     }
-	
 }
