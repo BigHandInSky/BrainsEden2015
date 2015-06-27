@@ -17,8 +17,6 @@ public class RocketOrbitBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		Debug.Log (GravIntensity);
-
 		if (maxSpeed >= 0) 
 		{
 			timer += Time.deltaTime;
