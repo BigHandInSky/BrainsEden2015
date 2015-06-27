@@ -26,13 +26,13 @@ public class PushingScript : MonoBehaviour {
 	void Update () 
 	{
 		
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space)) {
 			
 			
 			for(int i=0; i < fragments.Capacity; i++){
 				
 				Vector3 velocity = transform.position + fragments[i].transform.position;
-				fragments[i].GetComponent<Rigidbody>().AddForce(velocity* 10);
+				fragments[i].GetComponent<Rigidbody>().AddForce(velocity* 1500);
 				
 				//Vector3 move = new Vector3 (transform.position.x + moveTowards, transform.position.y, transform.position.z);
 				//transform.position = move;
