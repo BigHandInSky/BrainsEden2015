@@ -22,7 +22,7 @@ public class Manager_Game : MonoBehaviour
         //if on first scene load into next one
         if(Application.loadedLevelName.Contains("First"))
         {
-            ChangeScene(1);
+            ChangeScene(3);
         }
     }
 
