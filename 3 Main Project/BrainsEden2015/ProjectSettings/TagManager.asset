@@ -8,6 +8,9 @@ TagManager:
   - Junk
   - RocketRED
   - RocketBLU
+  - Debris
+  - LauncherRED
+  - LauncherBLUE
   layers:
   - Default
   - TransparentFX

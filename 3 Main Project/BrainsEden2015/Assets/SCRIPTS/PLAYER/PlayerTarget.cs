@@ -26,15 +26,26 @@ public class PlayerTarget : MonoBehaviour {
 	
 	void Update() 
     {
+		float anglePlayer = Mathf.Atan2(transform.up.y, transform.up.x) * 180 / 3.14f;
 
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
 		
 		if (Input.GetKey (KeyCode.A)) {
-			transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			if(transform.eulerAngles.z <= 270 && transform.tag == "LauncherBLUE")
+				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			else if(anglePlayer <= 180 && anglePlayer > 0 && transform.tag == "LauncherRED")
+			{
+					transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			}
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-			transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			if(transform.eulerAngles.z >= 90 && transform.tag == "LauncherBLUE")
+				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			else if(anglePlayer >= 0 && transform.tag == "LauncherRED")
+			{
+				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			}
 		}
 
 
