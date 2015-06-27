@@ -172,20 +172,6 @@
          sodipodi:role="line">UI BG</tspan></text>
     <rect
        style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:16;stroke-opacity:1"
-       id="rect4192"
-       width="180"
-       height="180"
-       x="-595.99493"
-       y="418.58762" />
-    <rect
-       y="418.58762"
-       x="-399.41925"
-       height="180"
-       width="180"
-       id="rect4194"
-       style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:16;stroke-opacity:1" />
-    <rect
-       style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:16;stroke-opacity:1"
        id="rect4196"
        width="180"
        height="180"
@@ -2628,6 +2614,60 @@
          inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ASSETS\UI\NautInd_Yes.png"
          inkscape:export-xdpi="90"
          inkscape:export-ydpi="90" />
+    </g>
+    <g
+       id="g6198">
+      <rect
+         y="418.58762"
+         x="-595.99493"
+         height="180"
+         width="180"
+         id="rect4192"
+         style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:#ffffff;stroke-width:4;stroke-opacity:1" />
+      <circle
+         r="48.436813"
+         cy="533.68988"
+         cx="-505.99493"
+         id="path6182"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6184"
+         d="M -511.59176,495.86917 -504,431.6122 l 7,-0.25 0,4.25 54,3 -1.25,34 -53,-1.75 -1.5,26.5 -7.5,1.75 z"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path6188"
+         d="m -536.25,546.6122 26.5,22.25 38.25,-41.5 -11,-20.5 -24.75,29.25 -16.75,-8.25 z"
+         style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:4;stroke-opacity:1" />
+    </g>
+    <g
+       id="g6204">
+      <rect
+         style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:#ffffff;stroke-width:4;stroke-opacity:1"
+         id="rect4194"
+         width="180"
+         height="180"
+         x="-399.41925"
+         y="418.58762" />
+      <circle
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-opacity:1"
+         id="circle6190"
+         cx="-309.41925"
+         cy="533.68988"
+         r="48.436813" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6194"
+         d="m -317.49095,494.80851 10.60661,-61.87185 9.19238,1.06066 -1.06066,37.47666 7.42463,7.07107 3.53553,2.82843 8.83883,0.7071 3.18198,4.94975 6.36397,3.18198 0.7071,17.67767 -9.89949,1.41422 -9.54594,-7.42463 -13.08148,0.70711 c 0,0 -4.24264,-4.24264 -6.36396,-4.59619 -2.12132,-0.35356 -8.13173,1.76776 -8.13173,1.76776 z"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path6196"
+         d="m -334.10795,516.37527 14.14213,21.2132 -18.03122,14.84924 12.02081,17.67767 20.5061,-14.84924 13.43503,15.55635 13.08147,-12.72793 -13.78858,-14.49568 18.38477,-16.61701 -15.55634,-14.14214 -16.26346,12.72792 -13.43502,-20.15254 z"
+         style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:4;stroke-opacity:1" />
     </g>
   </g>
 </svg>

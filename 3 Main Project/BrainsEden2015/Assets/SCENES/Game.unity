@@ -898,14 +898,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_RedNautIndicators.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_BluNautIndicators.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 490110, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 445.317566
@@ -936,24 +928,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490110, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: m_RedUIRoot
       value: 
       objectReference: {fileID: 1955999535}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_BluUIRoot
+      propertyPath: m_RedVictoryRoot
       value: 
-      objectReference: {fileID: 1245276127}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_RedMissileInd
-      value: 
-      objectReference: {fileID: 2023769488}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_BluMissileInd
-      value: 
-      objectReference: {fileID: 1121080292}
+      objectReference: {fileID: 918609380}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: m_RedNautIndicators.Array.data[0]
       value: 
@@ -967,6 +951,18 @@ Prefab:
       value: 
       objectReference: {fileID: 925211869}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_RedMissileInd
+      value: 
+      objectReference: {fileID: 2023769488}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_BluUIRoot
+      value: 
+      objectReference: {fileID: 1245276127}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_BluVictoryRoot
+      value: 
+      objectReference: {fileID: 1306921853}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: m_BluNautIndicators.Array.data[0]
       value: 
       objectReference: {fileID: 2088044057}
@@ -979,38 +975,9 @@ Prefab:
       value: 
       objectReference: {fileID: 2045312824}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_RedVictoryRoot
+      propertyPath: m_BluMissileInd
       value: 
-      objectReference: {fileID: 918609380}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_BluVictoryRoot
-      value: 
-      objectReference: {fileID: 1306921853}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_MissileNone
-      value: 
-      objectReference: {fileID: 21300000, guid: 979ea49745b51f546bea4ddd29caa8f8,
-        type: 3}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_MissileNaut
-      value: 
-      objectReference: {fileID: 21300000, guid: 66899d9367b19af4f92ef98d3dacb03e,
-        type: 3}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_MissileJunk
-      value: 
-      objectReference: {fileID: 21300000, guid: 44cddd58222d6754f997c2ff2cbdef25,
-        type: 3}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_MissileSprd
-      value: 
-      objectReference: {fileID: 21300000, guid: b14f76aa30de662498972def396eee5e,
-        type: 3}
-    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
-      propertyPath: m_MissilePull
-      value: 
-      objectReference: {fileID: 21300000, guid: 1ebe9b0368806f54fa862e498f302390,
-        type: 3}
+      objectReference: {fileID: 1121080292}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0

@@ -39,6 +39,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f66803693f6cc45943b6ee8bb561cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nauts_ui_debug: 0
+  switch_debug: 0
+  win_debug: 0
+  CurrentState: 0
+  NautsBalance: 0
+  m_RedUIRoot: {fileID: 0}
+  m_RedVictoryRoot: {fileID: 0}
+  m_RedNautIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_RedMissileInd: {fileID: 0}
+  m_BluUIRoot: {fileID: 0}
+  m_BluVictoryRoot: {fileID: 0}
+  m_BluNautIndicators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_BluMissileInd: {fileID: 0}
+  m_MissileNone: {fileID: 21300000, guid: 979ea49745b51f546bea4ddd29caa8f8, type: 3}
+  m_MissileNaut: {fileID: 21300000, guid: 66899d9367b19af4f92ef98d3dacb03e, type: 3}
+  m_MissileJunk: {fileID: 21300000, guid: 44cddd58222d6754f997c2ff2cbdef25, type: 3}
+  m_MissileSprd: {fileID: 21300000, guid: b14f76aa30de662498972def396eee5e, type: 3}
+  m_MissilePull: {fileID: 21300000, guid: 1ebe9b0368806f54fa862e498f302390, type: 3}
+  m_MissileVictory: {fileID: 21300000, guid: 19101ec9fe87a5140a59696442f5d85e, type: 3}
+  m_MissileFail: {fileID: 21300000, guid: de4e8a7f5481d264f89024d7ecb6fdcc, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
