@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d5799fc10954b4d9418f2f585c8614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debris: {fileID: 125932, guid: cf7e7b3983f44c847bb76e6cc56c8e94, type: 2}
+  debris: {fileID: 157544, guid: 093e3b008ad3daa489483c2d27377ffd, type: 2}
   minValue: -5
   maxValue: 5
 --- !u!136 &13615544
@@ -164,7 +164,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: debris
+      value: 
+      objectReference: {fileID: 157544, guid: 093e3b008ad3daa489483c2d27377ffd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159960}
