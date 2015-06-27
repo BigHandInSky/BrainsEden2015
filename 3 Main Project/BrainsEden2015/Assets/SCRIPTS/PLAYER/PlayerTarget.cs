@@ -23,22 +23,6 @@ public class PlayerTarget : MonoBehaviour {
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
 		
-        //delete or re-code later on
-		/*if (Input.GetButtonDown ("Fire1")) {
-			
-			Vector3 mousePos = Input.mousePosition;
-			mousePos.z = -Camera.main.transform.position.z;
-			mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-			
-			GameObject bullet = (GameObject)Instantiate(bulletPrefab,transform.position, Quaternion.identity);
-			
-			Vector3 dir = (mousePos - transform.position).normalized;
-			bullet.transform.eulerAngles = new Vector3(0, 0,90 + Mathf.Atan2(-dir.y, -dir.x) * 180/3.14f);
-			bullet.GetComponent<Rigidbody>().velocity = dir * rocketSpeed;
-
-            GameStateHandler.Instance.SwitchState();
-		}*/
-		
 		if (Input.GetKey (KeyCode.A)) {
 			transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
 		}

@@ -13,6 +13,9 @@ public class ChangeRocket : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+        if (!m_ShootComp.enabled)
+            return;
+
 		if (Input.GetKeyDown (KeyCode.Alpha1)) 
 		{
             m_ShootComp.RocketType = 1;
