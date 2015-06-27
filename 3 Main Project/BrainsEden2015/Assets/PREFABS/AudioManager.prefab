@@ -39,6 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b34b4c2df37644e94776201bdcfaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjToSpawn: {fileID: 131590, guid: 60a9cf292b32e2b419903596b366a5c6, type: 2}
+  ObjToSpawnUnder: {fileID: 0}
+  Effects: []
+  Music: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

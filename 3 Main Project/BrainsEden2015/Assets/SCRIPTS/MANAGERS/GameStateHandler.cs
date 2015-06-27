@@ -76,6 +76,8 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private Sprite m_MissileFail;
 
     [SerializeField] private Text m_ControlsText;
+    [SerializeField] private Text m_TimerText;
+    private float m_CountdownLength = 5f;
 
     public bool nauts_ui_debug = false;
     public bool switch_debug = false;
@@ -106,6 +108,8 @@ public class GameStateHandler : MonoBehaviour
 
     public void SwitchState()
     {
+        StopAllCoroutines();
+
         if (Mathf.Abs(NautsBalance) == 3)
         {
             EndGame();
@@ -115,42 +119,79 @@ public class GameStateHandler : MonoBehaviour
         m_StatesRan++;
         m_ControlsText.color = new Color(1f, 1f, 1f, (10 - m_StatesRan) * 0.1f);
 
-        if (m_StatesRan % 3 == 0)
-            Asteroid();
+        StartCoroutine(SwitchDo());
+    }
+    IEnumerator SwitchDo()
+    {
+        redPlayerMove.enabled = false;
+        bluPlayerMove.enabled = false;
+        redPlayerMove.GetGuide.SetActive(false);
+        bluPlayerMove.GetGuide.SetActive(false);
+        m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
+        m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
+
+        m_TimerText.color = new Color(1f, 1f, 1f, 1f);
+        float _time = 2.5f;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            m_TimerText.text = _time.ToString("0.0") + "s";
+            yield return new WaitForEndOfFrame();
+        }
+
 
         if (CurrentState == GameState.Red) //Switch to Blu Player
         {
             CurrentState = GameState.Blue;
+
+            m_TimerText.color = new Color(0.5f, 0.5f, 1f, 1f);
+
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
             m_RedTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(false);
             bluPlayerMove.GetGuide.SetActive(true);
-			redPlayerMove.enabled = false; //disable red player script
-			if (!bluPlayerMove.enabled) //check if blue already active
-			{
-				bluPlayerMove.enabled = true; //make active if isn't
-			}
+
+            redPlayerMove.enabled = false;
+            bluPlayerMove.enabled = true;
         }
         else if (CurrentState == GameState.Blue) //Switch to Red Player
         {
             CurrentState = GameState.Red;
+
+            m_TimerText.color = new Color(1f, 0.5f, 0.5f, 1f);
+
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
             m_BluTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(true);
             bluPlayerMove.GetGuide.SetActive(false);
-			bluPlayerMove.enabled = false;
-			if (!redPlayerMove.enabled)
-			{
-				redPlayerMove.enabled = true;
-			}
+
+            redPlayerMove.enabled = true;
+            bluPlayerMove.enabled = false;
         }
+
+        StartCoroutine(TurnCountdown());
     }
+    IEnumerator TurnCountdown()
+    {
+        float _time = m_CountdownLength;
+        while(_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            m_TimerText.text = _time.ToString("0.0") + "s";
+            yield return new WaitForEndOfFrame();
+        }
+
+        SwitchState();
+    }
+
     private void EndGame()
     {
+        StopAllCoroutines();
+        m_TimerText.text = "";
         CurrentState = GameState.End;
 
         if (RedNauts == 3)
