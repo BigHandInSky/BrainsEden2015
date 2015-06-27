@@ -19,29 +19,32 @@ public class RocketOrbitBehavior : MonoBehaviour {
 		if (maxSpeed >= 0) 
 		{
 			timer += Time.deltaTime;
-			GravIntensity *= 0.999f;
+			GravIntensity *= 0.99f;
 
 			Vector3 velocity = GetComponent<Rigidbody> ().velocity;
 			float dist = Vector3.Distance (Vector3.zero, gameObject.transform.position);
 			velocity += ((Vector3.zero - gameObject.transform.position) / dist / dist * GravIntensity);
 			GetComponent<Rigidbody> ().velocity = velocity.normalized * maxSpeed; 
 			
-			maxSpeed -= 10 * 0.001f;
+			//maxSpeed -= 10 * 0.001f;
+			//maxSpeed *= 0.993f;
 
 			if(timer > 1.5f && !stage1)
 			{
-				maxSpeed -= 2;
-				stage1 = true;
+				//maxSpeed -= 2;
+				//stage1 = true;
+				//GravIntensity = 1;
 			}
 			if(timer > 2.5f && !stage2)
 			{
-				maxSpeed -= 2;
-				stage2 = true;
+				//maxSpeed -= 2;
+				//stage2 = true;
 			}
-			if(maxSpeed < 5f)
+			if(maxSpeed < 2f)
 			{
-				maxSpeed *= 0.99f;
-				GravIntensity = 1;
+				maxSpeed -= 0.1f;
+				if (maxSpeed <= 0)
+					maxSpeed = 0;
 			}else
 				transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 
