@@ -18,7 +18,7 @@ public class DestoryAtDistance : MonoBehaviour {
 
 		if (distance <= minDistance) 
 		{
-			Destroy (gameObject);
+			Destroy(gameObject);
 		}
 	}
 }
