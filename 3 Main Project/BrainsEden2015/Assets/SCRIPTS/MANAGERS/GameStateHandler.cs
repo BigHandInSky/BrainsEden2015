@@ -26,9 +26,13 @@ public class GameStateHandler : MonoBehaviour
 
         //random pick who starts
         if (Random.Range(0, 1f) > 0.49f)
+        {
             CurrentState = GameState.Red;
+        }
         else
+        {
             CurrentState = GameState.Blue;
+        }
 
         SwitchState();
 
@@ -123,6 +127,8 @@ public class GameStateHandler : MonoBehaviour
             m_BluSideLight.intensity = 2f;
             m_RedTargeter.TriggerFades();
 
+            redPlayerMove.GetGuide.SetActive(false);
+            bluPlayerMove.GetGuide.SetActive(true);
 			redPlayerMove.enabled = false; //disable red player script
 			if (!bluPlayerMove.enabled) //check if blue already active
 			{
@@ -138,6 +144,8 @@ public class GameStateHandler : MonoBehaviour
             m_BluSideLight.intensity = 0.5f;
             m_BluTargeter.TriggerFades();
 
+            redPlayerMove.GetGuide.SetActive(true);
+            bluPlayerMove.GetGuide.SetActive(false);
 			bluPlayerMove.enabled = false;
 			if (!redPlayerMove.enabled)
 			{
