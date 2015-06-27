@@ -20,6 +20,8 @@ public class PlayerTarget : MonoBehaviour {
 	
 	void Update() 
     {
+        if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
+            return;
 		
         //delete or re-code later on
 		/*if (Input.GetButtonDown ("Fire1")) {
@@ -58,7 +60,7 @@ public class PlayerTarget : MonoBehaviour {
     {
         GameObject _Rocket;
         //RocketType
-        if (RocketType == 0)
+        if (RocketType == 1)
         {
             _Rocket = (GameObject)Instantiate(m_RocketNaut, muzzle.transform.position, Quaternion.identity);
 
@@ -66,7 +68,7 @@ public class PlayerTarget : MonoBehaviour {
             _Rocket.GetComponent<Rigidbody>().velocity = velocity;
             _Rocket.transform.eulerAngles = new Vector3(0, 0, 90 + Mathf.Atan2(-velocity.y, -velocity.x) * 180 / 3.14f);
         }
-        else if (RocketType == 1)
+        else if (RocketType == 2)
         {
             _Rocket = (GameObject)Instantiate(m_RocketJunk, muzzle.transform.position, Quaternion.identity);
 
