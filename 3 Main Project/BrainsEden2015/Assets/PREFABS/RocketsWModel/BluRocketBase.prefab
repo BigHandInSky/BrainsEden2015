@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c00bc540016eab4f9f8f3475d2856a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 20
+  maxDistance: 40
   minDistance: 5
 --- !u!114 &11486104
 MonoBehaviour:
@@ -154,6 +154,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: minDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
