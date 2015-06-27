@@ -115,23 +115,32 @@ public class GameStateHandler : MonoBehaviour
         m_StatesRan++;
         m_ControlsText.color = new Color(1f, 1f, 1f, (10 - m_StatesRan) * 0.1f);
 
-        if (m_StatesRan % 3 == 0)
-            Asteroid();
+        StartCoroutine(SwitchDo());
+    }
+    IEnumerator SwitchDo()
+    {
+        redPlayerMove.enabled = false;
+        bluPlayerMove.enabled = false;
+        redPlayerMove.GetGuide.SetActive(false);
+        bluPlayerMove.GetGuide.SetActive(false);
+        m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
+        m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
+
+        yield return new WaitForSeconds(2f);
 
         if (CurrentState == GameState.Red) //Switch to Blu Player
         {
             CurrentState = GameState.Blue;
+
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
             m_RedTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(false);
             bluPlayerMove.GetGuide.SetActive(true);
-			redPlayerMove.enabled = false; //disable red player script
-			if (!bluPlayerMove.enabled) //check if blue already active
-			{
-				bluPlayerMove.enabled = true; //make active if isn't
-			}
+
+            redPlayerMove.enabled = false;
+            bluPlayerMove.enabled = true;
         }
         else if (CurrentState == GameState.Blue) //Switch to Red Player
         {
@@ -142,13 +151,12 @@ public class GameStateHandler : MonoBehaviour
 
             redPlayerMove.GetGuide.SetActive(true);
             bluPlayerMove.GetGuide.SetActive(false);
-			bluPlayerMove.enabled = false;
-			if (!redPlayerMove.enabled)
-			{
-				redPlayerMove.enabled = true;
-			}
+
+            redPlayerMove.enabled = true;
+            bluPlayerMove.enabled = false;
         }
     }
+
     private void EndGame()
     {
         CurrentState = GameState.End;
