@@ -206,6 +206,8 @@ MonoBehaviour:
   rocketSpeed: 10
   delayTimer: 0
   RocketType: 1
+  rocketPower: 0
+  spaceKeyDown: 0
 --- !u!114 &21636632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +272,8 @@ MonoBehaviour:
   rocketSpeed: 10
   delayTimer: 0
   RocketType: 1
+  rocketPower: 0
+  spaceKeyDown: 0
 --- !u!114 &54946836
 MonoBehaviour:
   m_ObjectHideFlags: 0
