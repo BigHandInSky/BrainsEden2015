@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d5799fc10954b4d9418f2f585c8614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debris1: {fileID: 171346, guid: 6ee5d296cd406144388f6ec5f063b808, type: 2}
+  debris2: {fileID: 133416, guid: 2ed6d01a272aba14cb293903ffbe58bf, type: 2}
+  debris3: {fileID: 163426, guid: 3649acd42700caf47a7efbcd09009e58, type: 2}
+  debris4: {fileID: 171670, guid: 5625fad8bf52c9b4990d34869498d03d, type: 2}
   debris: {fileID: 157544, guid: 093e3b008ad3daa489483c2d27377ffd, type: 2}
   minValue: -5
   maxValue: 5
@@ -178,6 +182,22 @@ Prefab:
       propertyPath: maxDistance
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: debris1
+      value: 
+      objectReference: {fileID: 171346, guid: 6ee5d296cd406144388f6ec5f063b808, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris2
+      value: 
+      objectReference: {fileID: 133416, guid: 2ed6d01a272aba14cb293903ffbe58bf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris3
+      value: 
+      objectReference: {fileID: 163426, guid: 3649acd42700caf47a7efbcd09009e58, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris4
+      value: 
+      objectReference: {fileID: 171670, guid: 5625fad8bf52c9b4990d34869498d03d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150444}
