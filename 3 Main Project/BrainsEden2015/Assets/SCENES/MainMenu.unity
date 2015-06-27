@@ -1850,7 +1850,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2139206042}
     m_Modifications:
     - target: {fileID: 438526, guid: a3c407503fd30c54dbc79d455a9cdef3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1882,7 +1882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438526, guid: a3c407503fd30c54dbc79d455a9cdef3, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3c407503fd30c54dbc79d455a9cdef3, type: 2}
@@ -2653,6 +2653,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1947215913 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 438526, guid: a3c407503fd30c54dbc79d455a9cdef3, type: 2}
+  m_PrefabInternal: {fileID: 970815240}
 --- !u!1 &1981948583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,3 +2825,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2097070128}
+--- !u!1 &2139206041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2139206042}
+  - 114: {fileID: 2139206043}
+  m_Layer: 0
+  m_Name: RotateAroundEarth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139206042
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139206041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1947215913}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+--- !u!114 &2139206043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139206041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98160383e8100a44a94d7ad79c72b906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotateX: 0
+  m_RotateY: 1
+  m_RotateZ: 0
+  m_RotateSpeeds: {x: 1, y: 5, z: 1}
