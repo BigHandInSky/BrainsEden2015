@@ -28,24 +28,23 @@ public class PlayerTarget : MonoBehaviour {
 	void Update() 
     {
 		float anglePlayer = Mathf.Atan2(transform.up.y, transform.up.x) * 180 / 3.14f;
-		Debug.Log (anglePlayer + (30 * Time.deltaTime * moveSpeed) );
+		Debug.Log (anglePlayer);
 
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
 		
 		if (Input.GetKey (KeyCode.A)) {
-			if(anglePlayer + (30 * Time.deltaTime * moveSpeed) > -180  && transform.tag == "LauncherBLUE")
+			if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 0  && transform.tag == "LauncherBLUE")
 				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(transform.tag == "LauncherRED")
+			else if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 180 && transform.tag == "LauncherRED")
 			{
 				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
 			}
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-			//transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0  && transform.tag == "LauncherBLUE")
+			if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > -180  && transform.tag == "LauncherBLUE")
 				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(transform.tag == "LauncherRED")
+			else if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0 && transform.tag == "LauncherRED")
 			{
 				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
 			}
