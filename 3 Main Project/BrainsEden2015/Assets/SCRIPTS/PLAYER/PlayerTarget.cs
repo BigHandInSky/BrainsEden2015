@@ -55,11 +55,15 @@ public class PlayerTarget : MonoBehaviour {
         if (Input.GetKeyDown (KeyCode.Space) && delayTimer <= 0) {
 			spaceKeyDown = true;
 		}
-		if(spaceKeyDown){
+		if (spaceKeyDown) {
 			rocketPower += Time.deltaTime;
-			if(transform.Find("Cannon/AimGuide").transform.localPosition.y < 2)
-				transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,transform.Find("Cannon/AimGuide").transform.localPosition.y + Time.deltaTime,0);
+			if (rocketPower <= 2)
+				transform.Find ("Cannon/AimGuide").transform.localPosition = new Vector3 (0, transform.Find ("Cannon/AimGuide").transform.localPosition.y + Time.deltaTime * 2, 0);
 
+		} else {
+			transform.Find ("Cannon/AimGuide").transform.localPosition = new Vector3 (0, 0, 0);
+			rocketPower = 0;
+			spaceKeyDown = false;
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
