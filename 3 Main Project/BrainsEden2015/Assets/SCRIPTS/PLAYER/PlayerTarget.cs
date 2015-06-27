@@ -2,7 +2,12 @@
 using System.Collections;
 
 public class PlayerTarget : MonoBehaviour {
-	
+
+    [SerializeField] private GameObject m_RocketNaut;
+    [SerializeField] private GameObject m_RocketJunk;
+    [SerializeField] private GameObject m_RocketSprd;
+    [SerializeField] private GameObject m_RocketPull;	
+
 	public GameObject bulletPrefab;
 	public GameObject muzzle;
 	
@@ -10,10 +15,14 @@ public class PlayerTarget : MonoBehaviour {
 	public float rocketSpeed = 10;
 
 	public float delayTimer = 0;
+
+    public int RocketType = 1;
 	
-	void Update() {
+	void Update() 
+    {
 		
-		if (Input.GetButtonDown ("Fire1")) {
+        //delete or re-code later on
+		/*if (Input.GetButtonDown ("Fire1")) {
 			
 			Vector3 mousePos = Input.mousePosition;
 			mousePos.z = -Camera.main.transform.position.z;
@@ -24,7 +33,9 @@ public class PlayerTarget : MonoBehaviour {
 			Vector3 dir = (mousePos - transform.position).normalized;
 			bullet.transform.eulerAngles = new Vector3(0, 0,90 + Mathf.Atan2(-dir.y, -dir.x) * 180/3.14f);
 			bullet.GetComponent<Rigidbody>().velocity = dir * rocketSpeed;
-		}
+
+            GameStateHandler.Instance.SwitchState();
+		}*/
 		
 		if (Input.GetKey (KeyCode.A)) {
 			transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
@@ -32,17 +43,18 @@ public class PlayerTarget : MonoBehaviour {
 		else if (Input.GetKey (KeyCode.D)) {
 			transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
 		}
-		
-		
-		if (Input.GetKey (KeyCode.Space) && delayTimer <=0 ) {
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && delayTimer <= 0)
+        {
+            GameStateHandler.Instance.SwitchState();
 			
 			GameObject bullet = (GameObject)Instantiate(bulletPrefab,muzzle.transform.position, Quaternion.identity);
 			
 			//float angle = Mathf.Atan2(muzzle.transform.localPosition.y, muzzle.transform.localPosition.x);
 			//Debug.Log (angle * 180 / 3.14f);
 			//bullet.transform.eulerAngles = new Vector3 (0, 0, angle * 180 / 3.14f);
-			//bullet.GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-			
+			//bullet.GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);			
 			
 			Vector3 velocity = muzzle.transform.up * rocketSpeed;
 			bullet.GetComponent<Rigidbody>().velocity = velocity;
@@ -51,5 +63,19 @@ public class PlayerTarget : MonoBehaviour {
 		}
 		delayTimer -= Time.deltaTime;
 	}
+
+    private void SpawnRocket()
+    {
+        GameObject _Rocket;
+        //RocketType
+        if (RocketType == 0)
+            _Rocket = (GameObject)Instantiate(m_RocketNaut, muzzle.transform.position, Quaternion.identity);
+        else if (RocketType == 1)
+            _Rocket = (GameObject)Instantiate(m_RocketJunk, muzzle.transform.position, Quaternion.identity);
+        //else if (RocketType == 2)
+        //    _Rocket = (GameObject)Instantiate(m_RocketSprd, muzzle.transform.position, Quaternion.identity);
+        //else if (RocketType == 3)
+        //    _Rocket = (GameObject)Instantiate(m_RocketPull, muzzle.transform.position, Quaternion.identity);
+    }
 	
 }
