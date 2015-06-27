@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RocketNaut: {fileID: 146248, guid: 0cb24338621c98f43a10a9342c72d755, type: 2}
   m_RocketJunk: {fileID: 159960, guid: b947aa2d49c37b04db2889b10a4e5483, type: 2}
-  m_RocketSprd: {fileID: 0}
+  m_RocketSprd: {fileID: 119130, guid: 7a11c91ad423bdd4f8a26f52bc15f77e, type: 2}
   m_RocketPull: {fileID: 0}
   bulletPrefab: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
   muzzle: {fileID: 1900671938}
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RocketNaut: {fileID: 169576, guid: fbe0d8f77d911994c89457a421c88167, type: 2}
   m_RocketJunk: {fileID: 150444, guid: 1fdb7dd46372d9847b6e0cf41c27fe62, type: 2}
-  m_RocketSprd: {fileID: 0}
+  m_RocketSprd: {fileID: 114036, guid: 13e044f17e8e9f64eb44819dcd6d79de, type: 2}
   m_RocketPull: {fileID: 0}
   bulletPrefab: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
   muzzle: {fileID: 821854583}

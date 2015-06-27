@@ -12,14 +12,18 @@ public class RocketOrbitBehavior : MonoBehaviour {
 	bool stage2 = false;
 	bool stage3 = false;
 
+	float angleSpeed = 1;
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		Debug.Log (GravIntensity);
 
 		if (maxSpeed >= 0) 
 		{
 			timer += Time.deltaTime;
-			GravIntensity *= 0.99f;
+			if(GravIntensity > 1.3)
+				GravIntensity *= 0.99f;
 
 			Vector3 velocity = GetComponent<Rigidbody> ().velocity;
 			float dist = Vector3.Distance (Vector3.zero, gameObject.transform.position);
