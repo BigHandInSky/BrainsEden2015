@@ -5,7 +5,7 @@ public class RocketOrbitBehavior : MonoBehaviour {
 	
 	
 	float GravIntensity = 1.8f;
-	float maxSpeed = 11;
+	float maxSpeed = 9;
 	float timer = 0;
 
 	bool stage1 = false;
