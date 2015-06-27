@@ -60,27 +60,34 @@ public class PlayerTarget : MonoBehaviour {
     {
         GameObject _Rocket;
         //RocketType
-        if (RocketType == 1)
-        {
-            _Rocket = (GameObject)Instantiate(m_RocketNaut, muzzle.transform.position, Quaternion.identity);
+        if (RocketType == 1) {
+			_Rocket = (GameObject)Instantiate (m_RocketNaut, muzzle.transform.position, Quaternion.identity);
 
-            Vector3 velocity = muzzle.transform.up * rocketSpeed;
-            _Rocket.GetComponent<Rigidbody>().velocity = velocity;
-            _Rocket.transform.eulerAngles = new Vector3(0, 0, 90 + Mathf.Atan2(-velocity.y, -velocity.x) * 180 / 3.14f);
-        }
-        else if (RocketType == 2)
-        {
-            _Rocket = (GameObject)Instantiate(m_RocketJunk, muzzle.transform.position, Quaternion.identity);
+			Vector3 velocity = muzzle.transform.up * rocketSpeed;
+			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
+			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
+		} else if (RocketType == 2)
+		{
+			_Rocket = (GameObject)Instantiate (m_RocketJunk, muzzle.transform.position, Quaternion.identity);
 
-            Vector3 velocity = muzzle.transform.up * rocketSpeed;
-            _Rocket.GetComponent<Rigidbody>().velocity = velocity;
-            _Rocket.transform.eulerAngles = new Vector3(0, 0, 90 + Mathf.Atan2(-velocity.y, -velocity.x) * 180 / 3.14f);
-        }
-        //else if (RocketType == 2)
-        //    _Rocket = (GameObject)Instantiate(m_RocketSprd, muzzle.transform.position, Quaternion.identity);
-        //else if (RocketType == 3)
-        //    _Rocket = (GameObject)Instantiate(m_RocketPull, muzzle.transform.position, Quaternion.identity);
+			Vector3 velocity = muzzle.transform.up * rocketSpeed;
+			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
+			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
+		} else if (RocketType == 3)
+		{
+			_Rocket = (GameObject)Instantiate (m_RocketSprd, muzzle.transform.position, Quaternion.identity);
 
+			Vector3 velocity = muzzle.transform.up * rocketSpeed;
+			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
+			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
+		} else if (RocketType == 4) 
+		{
+			_Rocket = (GameObject)Instantiate (m_RocketPull, muzzle.transform.position, Quaternion.identity);
+
+			Vector3 velocity = muzzle.transform.up * rocketSpeed;
+			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
+			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
+		}
     }
 	
 }

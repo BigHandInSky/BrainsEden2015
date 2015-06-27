@@ -197,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RocketNaut: {fileID: 146248, guid: 0cb24338621c98f43a10a9342c72d755, type: 2}
   m_RocketJunk: {fileID: 159960, guid: b947aa2d49c37b04db2889b10a4e5483, type: 2}
-  m_RocketSprd: {fileID: 0}
-  m_RocketPull: {fileID: 0}
+  m_RocketSprd: {fileID: 119130, guid: 7a11c91ad423bdd4f8a26f52bc15f77e, type: 2}
+  m_RocketPull: {fileID: 136142, guid: de4c57a3952a4744482015c7259f0d08, type: 2}
   bulletPrefab: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
   muzzle: {fileID: 1900671938}
   moveSpeed: 5
@@ -260,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RocketNaut: {fileID: 169576, guid: fbe0d8f77d911994c89457a421c88167, type: 2}
   m_RocketJunk: {fileID: 150444, guid: 1fdb7dd46372d9847b6e0cf41c27fe62, type: 2}
-  m_RocketSprd: {fileID: 0}
-  m_RocketPull: {fileID: 0}
+  m_RocketSprd: {fileID: 114036, guid: 13e044f17e8e9f64eb44819dcd6d79de, type: 2}
+  m_RocketPull: {fileID: 176938, guid: 368e5d17e65c6a44c9faa19903d54c21, type: 2}
   bulletPrefab: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
   muzzle: {fileID: 821854583}
   moveSpeed: 5
@@ -312,7 +312,7 @@ Transform:
   - {fileID: 694622928}
   - {fileID: 1468880910}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1001 &186190778
 Prefab:
   m_ObjectHideFlags: 0
@@ -896,6 +896,14 @@ Prefab:
       propertyPath: m_MainLight
       value: 
       objectReference: {fileID: 92051076}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_RedSideLight
+      value: 
+      objectReference: {fileID: 92051076}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_BluSideLight
+      value: 
+      objectReference: {fileID: 1325956597}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0
@@ -1707,6 +1715,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323440318}
+--- !u!108 &1325956597 stripped
+Light:
+  m_PrefabParentObject: {fileID: 10814556, guid: 8fcd5eaa2f6a07349ac3908a390d18ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 323547915}
 --- !u!1 &1468880909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2360,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 194020, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 999545169c8b757499ebe5db11e444ec, type: 2}
   m_IsPrefabParent: 0
@@ -2383,7 +2400,7 @@ RectTransform:
   - {fileID: 918609381}
   - {fileID: 1306921854}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
