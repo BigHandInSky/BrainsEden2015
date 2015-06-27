@@ -36,6 +36,8 @@ public class GameStateHandler : MonoBehaviour
 
 	public PlayerTarget redPlayerMove;
 	public PlayerTarget bluPlayerMove;
+    [SerializeField] private ISSTargeterBehaviour m_RedTargeter;
+    [SerializeField] private ISSTargeterBehaviour m_BluTargeter;
 
     public enum GameState
     {
@@ -48,6 +50,8 @@ public class GameStateHandler : MonoBehaviour
     private int m_StatesRan = 0;
 
     public int NautsBalance = 0;
+    public int RedNauts = 0;
+    public int BluNauts = 0;
 
     [SerializeField] private Image m_RedUIRoot;
     [SerializeField] private GameObject m_RedVictoryRoot;
@@ -117,6 +121,7 @@ public class GameStateHandler : MonoBehaviour
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
             m_RedSideLight.intensity = 0.5f;
             m_BluSideLight.intensity = 2f;
+            m_RedTargeter.TriggerFades();
 
 			redPlayerMove.enabled = false; //disable red player script
 			if (!bluPlayerMove.enabled) //check if blue already active
@@ -131,6 +136,7 @@ public class GameStateHandler : MonoBehaviour
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
             m_RedSideLight.intensity = 2f;
             m_BluSideLight.intensity = 0.5f;
+            m_BluTargeter.TriggerFades();
 
 			bluPlayerMove.enabled = false;
 			if (!redPlayerMove.enabled)
@@ -164,9 +170,9 @@ public class GameStateHandler : MonoBehaviour
     public void ISSHit(bool _redColl)
     {
         if (_redColl)
-            NautsBalance++;
+            RedNauts++;
         else
-            NautsBalance--;
+            BluNauts--;
 
         SetNautsUI();
 
@@ -181,14 +187,15 @@ public class GameStateHandler : MonoBehaviour
         foreach (Image _obj in m_BluNautIndicators)
             _obj.color = new Color(1f, 1f, 1f, 0f);
 
-        if(NautsBalance > 0)
+        if (RedNauts > 0)
         {
-            for (int _r = 0; _r < NautsBalance; _r++)
+            for (int _r = 0; _r < RedNauts; _r++)
                 m_RedNautIndicators[_r].color = new Color(1f, 1f, 1f, 1f);
         }
-        else if(NautsBalance < 0)
+
+        if (BluNauts < 0)
         {
-            for (int _b = 0; _b < Mathf.Abs(NautsBalance); _b++)
+            for (int _b = 0; _b < Mathf.Abs(BluNauts); _b++)
                 m_BluNautIndicators[_b].color = new Color(1f, 1f, 1f, 1f);
         }
     }
