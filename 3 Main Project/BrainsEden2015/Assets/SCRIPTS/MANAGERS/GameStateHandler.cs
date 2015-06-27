@@ -67,6 +67,8 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private Sprite m_MissileVictory;
     [SerializeField] private Sprite m_MissileFail;
 
+    [SerializeField] private Light m_RedSideLight;
+    [SerializeField] private Light m_BluSideLight;
 
     public bool nauts_ui_debug = false;
     public bool switch_debug = false;
@@ -113,6 +115,8 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Blue;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
+            m_RedSideLight.intensity = 0.5f;
+            m_BluSideLight.intensity = 2f;
 
 			redPlayerMove.enabled = false; //disable red player script
 			if (!bluPlayerMove.enabled) //check if blue already active
@@ -125,6 +129,8 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Red;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
+            m_RedSideLight.intensity = 2f;
+            m_BluSideLight.intensity = 0.5f;
 
 			bluPlayerMove.enabled = false;
 			if (!redPlayerMove.enabled)

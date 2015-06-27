@@ -15,22 +15,22 @@ public class ChangeRocket : MonoBehaviour
 	{
 		if (Input.GetKeyDown (KeyCode.Alpha1)) 
 		{
-            m_ShootComp.RocketType = 0;
+            m_ShootComp.RocketType = 1;
             GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Naut);
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha2))
         {
-            m_ShootComp.RocketType = 1;
+            m_ShootComp.RocketType = 2;
             GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Junk);
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha3))
         {
-            m_ShootComp.RocketType = 2;
+            m_ShootComp.RocketType = 3;
             GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Sprd);
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha4))
         {
-            m_ShootComp.RocketType = 3;
+            m_ShootComp.RocketType = 4;
             GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Pull);
 		}
 	}
