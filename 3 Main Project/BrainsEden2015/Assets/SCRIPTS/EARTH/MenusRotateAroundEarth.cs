@@ -28,7 +28,7 @@ public class MenusRotateAroundEarth : MonoBehaviour
             m_Rotate.y += m_RotateSpeeds.y * Time.deltaTime;
 
         if (m_RotateZ)
-            m_Rotate.y += m_RotateSpeeds.y * Time.deltaTime;
+            m_Rotate.z += m_RotateSpeeds.z * Time.deltaTime;
 
         m_RotatePoint.Rotate(m_Rotate);
     }
