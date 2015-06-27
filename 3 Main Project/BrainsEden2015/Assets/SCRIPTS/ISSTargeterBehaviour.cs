@@ -13,6 +13,7 @@ public class ISSTargeterBehaviour : MonoBehaviour
 
     public void TriggerFades()
     {
+        StopAllCoroutines();
         StartCoroutine(StartFades());
     }
 

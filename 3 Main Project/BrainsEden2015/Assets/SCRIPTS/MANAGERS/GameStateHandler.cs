@@ -123,7 +123,7 @@ public class GameStateHandler : MonoBehaviour
             CurrentState = GameState.Blue;
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
-            m_RedSideLight.intensity = 0.5f;
+            m_RedSideLight.intensity = 1.5f;
             m_BluSideLight.intensity = 2f;
             m_RedTargeter.TriggerFades();
 
@@ -141,7 +141,7 @@ public class GameStateHandler : MonoBehaviour
             m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
             m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
             m_RedSideLight.intensity = 2f;
-            m_BluSideLight.intensity = 0.5f;
+            m_BluSideLight.intensity = 1.5f;
             m_BluTargeter.TriggerFades();
 
             redPlayerMove.GetGuide.SetActive(true);
@@ -157,7 +157,7 @@ public class GameStateHandler : MonoBehaviour
     {
         CurrentState = GameState.End;
 
-        if (NautsBalance > 0)
+        if (RedNauts == 3)
         {
             Debug.Log("Red Victory");
             m_RedMissileInd.sprite = m_MissileVictory;
@@ -165,7 +165,7 @@ public class GameStateHandler : MonoBehaviour
 
             m_RedVictoryRoot.SetActive(true);
         }
-        else if (NautsBalance < 0)
+        else if (BluNauts == 3)
         {
             Debug.Log("Blu Victory");
             m_RedMissileInd.sprite = m_MissileFail;
@@ -184,27 +184,27 @@ public class GameStateHandler : MonoBehaviour
 
         SetNautsUI();
 
-        if (Mathf.Abs(NautsBalance) == 3)
+        if (RedNauts == 3 || BluNauts == 3)
             EndGame();
     }
 
     private void SetNautsUI()
     {
         foreach (Image _obj in m_RedNautIndicators)
-            _obj.color = new Color(1f, 1f, 1f, 0f);
+            _obj.color = new Color(1f, 0f, 0f, 0.5f);
         foreach (Image _obj in m_BluNautIndicators)
-            _obj.color = new Color(1f, 1f, 1f, 0f);
+            _obj.color = new Color(0f, 0f, 1f, 0.5f);
 
         if (RedNauts > 0)
         {
             for (int _r = 0; _r < RedNauts; _r++)
-                m_RedNautIndicators[_r].color = new Color(1f, 1f, 1f, 1f);
+                m_RedNautIndicators[_r].color = new Color(1f, 0f, 0f, 1f);
         }
 
         if (BluNauts < 0)
         {
             for (int _b = 0; _b < Mathf.Abs(BluNauts); _b++)
-                m_BluNautIndicators[_b].color = new Color(1f, 1f, 1f, 1f);
+                m_BluNautIndicators[_b].color = new Color(0f, 0f, 1f, 1f);
         }
     }
 

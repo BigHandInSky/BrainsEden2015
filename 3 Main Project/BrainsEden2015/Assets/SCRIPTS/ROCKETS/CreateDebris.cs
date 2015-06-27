@@ -9,16 +9,10 @@ public class CreateDebris : MonoBehaviour {
 	public float maxValue;
 
 
-	private float delayTimer = 1.5f;
+	private float delayTimer = 1f;
 	private float junkTimer = 0;
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
 		delayTimer -= Time.deltaTime;
@@ -29,7 +23,7 @@ public class CreateDebris : MonoBehaviour {
 				Instantiate(debris, transform.position - transform.up, Quaternion.identity);
 				junkTimer = 1;
 			}
-			junkTimer -= Time.deltaTime;
+			junkTimer -= Time.deltaTime * 2.5f;
 		}
 	}
 }

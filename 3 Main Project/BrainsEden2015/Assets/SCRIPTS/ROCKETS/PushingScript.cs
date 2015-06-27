@@ -33,7 +33,7 @@ public class PushingScript : MonoBehaviour {
 				if (distance < maxDistance) 
 				{
 					Vector3 velocity = transform.position + junkPrefab.transform.position;
-					junkPrefab.GetComponent<Rigidbody> ().AddForce (velocity * 1f);
+					junkPrefab.GetComponent<Rigidbody> ().AddForce (velocity * 5f);
 				}
 			}
 		}

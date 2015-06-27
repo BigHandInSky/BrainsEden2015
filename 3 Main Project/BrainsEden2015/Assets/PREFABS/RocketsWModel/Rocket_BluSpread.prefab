@@ -119,11 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7896dc3b988bfa4cbb5b640b2992fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTowards: 1
-  a: {fileID: 0}
-  b: {fileID: 0}
-  c: {fileID: 0}
-  d: {fileID: 0}
+  maxDistance: 3
+  junkPrefab: {fileID: 157544, guid: 093e3b008ad3daa489483c2d27377ffd, type: 2}
+  junk: []
 --- !u!114 &11482846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +170,14 @@ Prefab:
       propertyPath: minDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: junkPrefab
+      value: 
+      objectReference: {fileID: 157544, guid: 093e3b008ad3daa489483c2d27377ffd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148004}
