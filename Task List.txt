@@ -4,6 +4,17 @@
 - spread/pull
 - earth destroy 
 
+- two targets, sine wave along both halves
+- time turn based
+- fire1, fire2
+- effects
+- junk missiles
+- better ui
+- ISS model and world model
+- junk models
+- ui guide in game > "OOSA (Blue) - controls"
+- 
+
 ///// ASSETS
 
 
