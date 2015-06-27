@@ -8,6 +8,10 @@ public class CreateDebris : MonoBehaviour {
 	public float minValue;
 	public float maxValue;
 
+
+	private float delayTimer = 1.5f;
+	private float junkTimer = 0;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -17,11 +21,15 @@ public class CreateDebris : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.Space))
-		{
-			Vector3 position = new Vector3(Random.Range(minValue, maxValue), 1, Random.Range(minValue, maxValue));
-			Instantiate(debris, position, Quaternion.identity);
-			//Destroy(gameObject);
+		delayTimer -= Time.deltaTime;
+
+		if(delayTimer <= 0 && GetComponent<Rigidbody> ().velocity.magnitude > 3){
+			//Vector3 position = new Vector3(Random.Range(minValue, maxValue), Random.Range(minValue, maxValue), 0);
+			if(junkTimer <= 0){
+				Instantiate(debris, transform.position - transform.up, Quaternion.identity);
+				junkTimer = 1;
+			}
+			junkTimer -= Time.deltaTime;
 		}
 	}
 }
