@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class moveRocket : MonoBehaviour {
 
@@ -12,11 +13,11 @@ public class moveRocket : MonoBehaviour {
 	public float rocketPower = 10.0f;
 	public bool rocketMoving = false;
 	public int rocketType = 1;
+	
 
 	// Use this for initialization
 	void Start () 
 	{
-	
 	}
 	
 	// Update is called once per frame
@@ -45,6 +46,7 @@ public class moveRocket : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
+
 			/*
 			if(!rocketMoving)
 			{
@@ -56,8 +58,27 @@ public class moveRocket : MonoBehaviour {
 		*/
 			//transform.Translate (Vector3.right * Time.deltaTime * rocketSpeed);
 			Rigidbody clone;
-			clone = (Rigidbody)Instantiate(rocket1, transform.position, transform.rotation);
-			clone.velocity = transform.TransformDirection(-Vector3.left * rocketSpeed);
+			if(rocketType == 1)
+			{
+				clone = (Rigidbody)Instantiate(rocket1, transform.position, transform.rotation);
+				clone.velocity = transform.TransformDirection(-Vector3.left * rocketSpeed);
+
+			}
+			else if(rocketType == 2)
+			{
+				clone = (Rigidbody)Instantiate(rocket2, transform.position, transform.rotation);
+				clone.velocity = transform.TransformDirection(-Vector3.left * rocketSpeed);
+			}
+			else if(rocketType == 3)
+			{
+				clone = (Rigidbody)Instantiate(rocket3, transform.position, transform.rotation);
+				clone.velocity = transform.TransformDirection(-Vector3.left * rocketSpeed);
+			}
+			else if(rocketType == 4)
+			{
+				clone = (Rigidbody)Instantiate(rocket4, transform.position, transform.rotation);
+				clone.velocity = transform.TransformDirection(-Vector3.left * rocketSpeed);
+			}
 		}
 	}
 }
