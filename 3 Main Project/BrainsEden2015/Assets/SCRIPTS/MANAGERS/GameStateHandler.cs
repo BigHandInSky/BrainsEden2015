@@ -80,8 +80,8 @@ public class GameStateHandler : MonoBehaviour
 	[SerializeField] private Text m_ControlsText;
 	[SerializeField] private Text m_TimerText;
 
-    private float m_TurnSpaceLength = 4f;
-	private float m_CountdownLength = 5f;
+    private float m_TurnSpaceLength = 10f;
+	private float m_CountdownLength = 8f;
 	
 	public bool nauts_ui_debug = false;
 	public bool switch_debug = false;
@@ -144,6 +144,8 @@ public class GameStateHandler : MonoBehaviour
 			m_TimerText.text = _time.ToString("0.0") + "s";
 			yield return new WaitForEndOfFrame();
 		}
+        if (m_TurnSpaceLength > 5f)
+            m_TurnSpaceLength -= 0.5f;
 		
 		
 		if (CurrentState == GameState.Red) //Switch to Blu Player
