@@ -94,6 +94,7 @@ public class PlayerTarget : MonoBehaviour {
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
             transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+			Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Shoot);
             GameStateHandler.Instance.SwitchState();
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
