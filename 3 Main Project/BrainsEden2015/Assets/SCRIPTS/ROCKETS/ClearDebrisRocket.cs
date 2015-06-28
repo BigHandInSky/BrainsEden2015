@@ -8,4 +8,9 @@ public class ClearDebrisRocket : MonoBehaviour
         if (_other.gameObject.tag == "Junk")
             DestroyObject(_other.gameObject);
     }
+    void OnTriggerEnter(Collider _other)
+    {
+        if (_other.gameObject.tag == "Junk")
+            DestroyObject(_other.gameObject);
+    }
 }

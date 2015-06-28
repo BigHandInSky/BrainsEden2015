@@ -4,9 +4,10 @@ using System.Collections;
 public class ChangeRocket : MonoBehaviour 
 {
     private PlayerTarget m_ShootComp;
+    [SerializeField] private bool m_IsRed;
     [SerializeField] private LastFiredMissileText m_TextComp;
-    private int LastRocket = 0;	
-
+    private int LastRocket = 1;
+    private bool Changed = false;
 
     void Start()
     {
@@ -15,9 +16,12 @@ public class ChangeRocket : MonoBehaviour
 
     public void UIChangeRocket()
     {
+        if (Changed)
+            return;
+
         LastRocket++;
 
-        if (LastRocket == 5)
+        if (LastRocket == 4)
             LastRocket = 1;
 
         SetRocket(LastRocket);
@@ -61,21 +65,17 @@ public class ChangeRocket : MonoBehaviour
         if (!m_ShootComp.enabled)
             return;
 
-		if (Input.GetKeyDown (KeyCode.Alpha1)) 
-		{
-            SetRocket(1);
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2))
+        if (m_IsRed && Input.GetAxis("Red Player Change Rocket") > 0f)
         {
-            SetRocket(2);
+            UIChangeRocket();
+            Changed = true;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha3))
+        else if (!m_IsRed && Input.GetAxis("Blue Player Change Rocket") > 0f)
         {
-            SetRocket(3);
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4))
-        {
-            SetRocket(4);
-		}
+            UIChangeRocket();
+            Changed = true;
+        }
+        else if (Changed)
+            Changed = false;
 	}
 }

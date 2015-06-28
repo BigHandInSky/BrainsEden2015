@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420170}
   - 135: {fileID: 13547660}
+  - 114: {fileID: 11454682}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -300,6 +301,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107694}
   m_Mesh: {fileID: 4300000, guid: 01e534f70c886c14d99f4383084277e7, type: 3}
+--- !u!114 &11454682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408bfa939e715b548b099270b9397cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debris: {fileID: 171346, guid: 6ee5d296cd406144388f6ec5f063b808, type: 2}
+  debris1: {fileID: 133416, guid: 2ed6d01a272aba14cb293903ffbe58bf, type: 2}
+  debris2: {fileID: 163426, guid: 3649acd42700caf47a7efbcd09009e58, type: 2}
+  debris3: {fileID: 171670, guid: 5625fad8bf52c9b4990d34869498d03d, type: 2}
 --- !u!135 &13547660
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -323,6 +339,22 @@ Prefab:
       propertyPath: m_Radius
       value: .980000019
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: debris
+      value: 
+      objectReference: {fileID: 171346, guid: 6ee5d296cd406144388f6ec5f063b808, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris1
+      value: 
+      objectReference: {fileID: 133416, guid: 2ed6d01a272aba14cb293903ffbe58bf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris2
+      value: 
+      objectReference: {fileID: 163426, guid: 3649acd42700caf47a7efbcd09009e58, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debris3
+      value: 
+      objectReference: {fileID: 171670, guid: 5625fad8bf52c9b4990d34869498d03d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 169506}

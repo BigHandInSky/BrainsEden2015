@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class PlayerTarget : MonoBehaviour{
 
-    [SerializeField] private GameObject m_RocketNaut;
     [SerializeField] private GameObject m_RocketJunk;
     [SerializeField] private GameObject m_RocketSprd;
     [SerializeField] private GameObject m_RocketPull;
@@ -106,6 +105,7 @@ public class PlayerTarget : MonoBehaviour{
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
             transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+			Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Shoot);
             GameStateHandler.Instance.SwitchState();
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
@@ -153,7 +153,7 @@ public class PlayerTarget : MonoBehaviour{
         GameObject _Rocket;
         //RocketType
         if (RocketType == 1) {
-			_Rocket = (GameObject)Instantiate (m_RocketNaut, muzzle.transform.position, Quaternion.identity);
+			_Rocket = (GameObject)Instantiate (m_RocketJunk, muzzle.transform.position, Quaternion.identity);
 
 			Vector3 velocity = muzzle.transform.up * rocketSpeed;
 			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
@@ -171,24 +171,6 @@ public class PlayerTarget : MonoBehaviour{
 			}
 		} else if (RocketType == 2)
 		{
-			_Rocket = (GameObject)Instantiate (m_RocketJunk, muzzle.transform.position, Quaternion.identity);
-
-			Vector3 velocity = muzzle.transform.up * rocketSpeed;
-			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
-			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
-			_Rocket.GetComponent<RocketOrbitBehavior> ().maxSpeed *= rocketPower;
-
-			anglePlayer = Mathf.Abs(anglePlayer);
-			if(anglePlayer > 90){
-				anglePlayer -= 90;
-				anglePlayer = 90 - anglePlayer;
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}else
-			{
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}
-		} else if (RocketType == 3)
-		{
 			_Rocket = (GameObject)Instantiate (m_RocketSprd, muzzle.transform.position, Quaternion.identity);
 
 			Vector3 velocity = muzzle.transform.up * rocketSpeed;
@@ -205,7 +187,7 @@ public class PlayerTarget : MonoBehaviour{
 			{
 				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
 			}
-		} else if (RocketType == 4) 
+		} else if (RocketType == 3) 
 		{
 			_Rocket = (GameObject)Instantiate (m_RocketPull, muzzle.transform.position, Quaternion.identity);
 
