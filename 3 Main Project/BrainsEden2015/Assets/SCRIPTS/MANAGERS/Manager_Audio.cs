@@ -77,7 +77,7 @@ public class Manager_Audio : MonoBehaviour
 
     IEnumerator MusicRoutine()
     {
-        GameObject _lastClone = new GameObject("MusicRoutineTemp");
+        float _time = 0f;
         int _lastTrack = 0;
 
         while(true)
@@ -85,12 +85,16 @@ public class Manager_Audio : MonoBehaviour
             if (Music.Count < 1)
                 break;
 
-            if (_lastClone == null)
+            _time -= Time.deltaTime;
+
+            if (_time < 0f)
             {
-                _lastClone = (GameObject)Instantiate(ObjToSpawn);
+                GameObject _lastClone = (GameObject)Instantiate(ObjToSpawn);
                 _lastClone.transform.parent = ObjToSpawnUnder.transform;
                 _lastClone.transform.localPosition = Vector3.zero;
                 _lastClone.GetComponent<AudioObj>().Setup(Music[_lastTrack], true);
+
+                _time = Music[_lastTrack].length;
 
                 _lastTrack++;
                 if (_lastTrack == Music.Count)
