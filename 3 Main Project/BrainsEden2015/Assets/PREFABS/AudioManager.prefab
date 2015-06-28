@@ -40,8 +40,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjToSpawn: {fileID: 131590, guid: 60a9cf292b32e2b419903596b366a5c6, type: 2}
-  ObjToSpawnUnder: {fileID: 0}
-  Effects: []
+  Effects:
+  - {fileID: 8300000, guid: 6b348449e44e1ba4db9472301d4f4228, type: 3}
+  - {fileID: 8300000, guid: bad91c463a01acf448f73911c53ed5bf, type: 3}
+  - {fileID: 8300000, guid: a686d51f4e827dd469eb9cc22f712e7e, type: 3}
+  - {fileID: 8300000, guid: afbc45bbe45645a47823c6bb5e5913fe, type: 3}
+  - {fileID: 8300000, guid: 3c2658db02990ff40a0b9f07de3c5db1, type: 3}
+  - {fileID: 8300000, guid: d9fe33be3ee158447b1fd7dd0baad6fc, type: 3}
   Music: []
 --- !u!1001 &100100000
 Prefab:
