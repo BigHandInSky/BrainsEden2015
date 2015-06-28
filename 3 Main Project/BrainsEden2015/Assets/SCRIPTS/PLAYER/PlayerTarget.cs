@@ -108,6 +108,16 @@ public class PlayerTarget : MonoBehaviour {
 		delayTimer -= Time.deltaTime;
 	}
 
+    void OnDisable()
+    {
+		if (spaceKeyDown)
+        {
+            SpawnRocket();
+            spaceKeyDown = false;
+            delayTimer = 0.5f;
+            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+        }
+    }
     private void SpawnRocket()
     {
 		//Hold for 2 second for max power

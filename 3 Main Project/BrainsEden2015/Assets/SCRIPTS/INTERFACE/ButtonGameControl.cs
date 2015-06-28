@@ -35,6 +35,9 @@ public class ButtonGameControl : MonoBehaviour
 
     void Update()
     {
+        if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
+            gameObject.SetActive(false);
+
         if (Rotate)
         {
             if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.Red)

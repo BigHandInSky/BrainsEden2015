@@ -80,7 +80,7 @@ public class GameStateHandler : MonoBehaviour
 	[SerializeField] private Text m_ControlsText;
 	[SerializeField] private Text m_TimerText;
 
-    private float m_TurnSpaceLength = 3f;
+    private float m_TurnSpaceLength = 4f;
 	private float m_CountdownLength = 5f;
 	
 	public bool nauts_ui_debug = false;
