@@ -3,9 +3,9 @@ using System.Collections;
 
 public class RocketOrbitBehavior : MonoBehaviour {
 	
-	public float maxSpeed = 15;
+	public float maxSpeed = 20;
 
-	float GravIntensity = 1.8f;
+	public float GravIntensity = 2.0f;
 	float timer = 0;
 
     [SerializeField] private GameObject m_SmokeEffect;
