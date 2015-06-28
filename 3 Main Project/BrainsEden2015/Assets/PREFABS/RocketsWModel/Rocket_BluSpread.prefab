@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 15
-  m_SmokeEffect: {fileID: 179720, guid: 045549eedb8585641a4316bde95b6ee4, type: 2}
+  GravIntensity: 2
+  m_SmokeEffect: {fileID: 147790, guid: a2abc40aa643e93468ea95fedd730289, type: 2}
   m_EarthCollideEffect: {fileID: 118182, guid: 68e9a084932e33d4dbc0c108a95ada67, type: 2}
 --- !u!136 &13627274
 CapsuleCollider:
@@ -188,7 +189,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SmokeEffect
       value: 
-      objectReference: {fileID: 179720, guid: 045549eedb8585641a4316bde95b6ee4, type: 2}
+      objectReference: {fileID: 147790, guid: a2abc40aa643e93468ea95fedd730289, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148004}
