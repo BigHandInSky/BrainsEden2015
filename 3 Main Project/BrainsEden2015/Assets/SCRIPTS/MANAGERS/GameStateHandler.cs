@@ -60,12 +60,14 @@ public class GameStateHandler : MonoBehaviour
 	[SerializeField] private Image m_RedUIRoot;
 	[SerializeField] private GameObject m_RedVictoryRoot;
 	[SerializeField] private List<Image> m_RedNautIndicators;
-	[SerializeField] private Image m_RedMissileInd;
+    [SerializeField] private Image m_RedMissileInd;
+    [SerializeField] private LastFiredMissileText m_GuideTextRed;
 	
 	[SerializeField] private Image m_BluUIRoot;
 	[SerializeField] private GameObject m_BluVictoryRoot;
 	[SerializeField] private List<Image> m_BluNautIndicators;
 	[SerializeField] private Image m_BluMissileInd;
+    [SerializeField] private LastFiredMissileText m_GuideTextBlu;
 	
 	[SerializeField] private Sprite m_MissileNone;
 	[SerializeField] private Sprite m_MissileNaut;
@@ -129,6 +131,8 @@ public class GameStateHandler : MonoBehaviour
 		bluPlayerMove.GetGuide.SetActive(false);
 		m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
 		m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
+        m_GuideTextRed.SetVisible(false);
+        m_GuideTextBlu.SetVisible(false);
 		
 		m_TimerText.color = new Color(1f, 1f, 1f, 1f);
 		float _time = 2.5f;
@@ -148,7 +152,10 @@ public class GameStateHandler : MonoBehaviour
 			
 			m_RedUIRoot.color = new Color(1f, 0f, 0f, 0f);
 			m_BluUIRoot.color = new Color(0f, 0f, 1f, 0.5f);
-			m_RedTargeter.TriggerFades();
+            m_RedTargeter.TriggerFades();
+
+            m_GuideTextRed.SetVisible(false);
+            m_GuideTextBlu.SetVisible(true);
 			
 			redPlayerMove.GetGuide.SetActive(false);
 			bluPlayerMove.GetGuide.SetActive(true);
@@ -164,7 +171,10 @@ public class GameStateHandler : MonoBehaviour
 			
 			m_RedUIRoot.color = new Color(1f, 0f, 0f, 0.5f);
 			m_BluUIRoot.color = new Color(0f, 0f, 1f, 0f);
-			m_BluTargeter.TriggerFades();
+            m_BluTargeter.TriggerFades();
+
+            m_GuideTextRed.SetVisible(true);
+            m_GuideTextBlu.SetVisible(false);
 			
 			redPlayerMove.GetGuide.SetActive(true);
 			bluPlayerMove.GetGuide.SetActive(false);
