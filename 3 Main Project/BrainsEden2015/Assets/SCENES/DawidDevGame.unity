@@ -1714,11 +1714,11 @@ Prefab:
     - target: {fileID: 11447014, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
       propertyPath: Effects.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: a686d51f4e827dd469eb9cc22f712e7e, type: 3}
+      objectReference: {fileID: 8300000, guid: 101c66f46bd7e034b9f9279430e3e759, type: 3}
     - target: {fileID: 11447014, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
       propertyPath: Effects.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: afbc45bbe45645a47823c6bb5e5913fe, type: 3}
+      objectReference: {fileID: 8300000, guid: 6869cf229ac941a48b28dd8b2c7dc467, type: 3}
     - target: {fileID: 11447014, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
       propertyPath: Effects.Array.data[4]
       value: 
