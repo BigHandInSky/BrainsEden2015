@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &107694
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484202}
+  - 33: {fileID: 3394622}
+  - 23: {fileID: 2363514}
+  m_Layer: 0
+  m_Name: default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &113482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468922}
+  m_Layer: 0
+  m_Name: Cloud-Cover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &121436
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +75,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 420170}
   - 135: {fileID: 13547660}
-  - 114: {fileID: 11477942}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -78,6 +109,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 468922}
   - {fileID: 480024}
   - {fileID: 445686}
   - {fileID: 450312}
@@ -94,7 +126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420170}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &450312
 Transform:
   m_ObjectHideFlags: 1
@@ -106,7 +138,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420170}
-  m_RootOrder: 2
+  m_RootOrder: 3
+--- !u!4 &468922
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113482}
+  m_LocalRotation: {x: .596441984, y: -.394309849, z: -.093838267, w: .692799509}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5.21189594, y: 5.21189499, z: 5.21189499}
+  m_Children:
+  - {fileID: 484202}
+  m_Father: {fileID: 420170}
+  m_RootOrder: 0
 --- !u!4 &480024
 Transform:
   m_ObjectHideFlags: 1
@@ -118,6 +163,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420170}
+  m_RootOrder: 1
+--- !u!4 &484202
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00999999, y: 1.00999963, z: 1.00999963}
+  m_Children: []
+  m_Father: {fileID: 468922}
   m_RootOrder: 0
 --- !u!23 &2322578
 MeshRenderer:
@@ -154,6 +211,30 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 42a83c777b52e204a92c0efe20ec1afc, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2363514
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107694}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: cc19e23c80f3bd44d80d5225763c550e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -212,21 +293,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195360}
   m_Mesh: {fileID: 4300000, guid: 2c30eea0319831b49af47d17c1135109, type: 3}
---- !u!114 &11477942
-MonoBehaviour:
+--- !u!33 &3394622
+MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f666d077058f6ba40bfeacbc8c056167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 40
-  minDistance: 25
-  pullForce: 2
-  targeted: []
+  m_GameObject: {fileID: 107694}
+  m_Mesh: {fileID: 4300000, guid: 01e534f70c886c14d99f4383084277e7, type: 3}
 --- !u!135 &13547660
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -249,18 +322,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: .980000019
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: maxDistance
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: minDistance
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: pullForce
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
