@@ -23,13 +23,6 @@ public class ISSBehaviour : MonoBehaviour
 
             GameStateHandler.Instance.ISSHit(true);
             DestroyObject(_other.gameObject);
-
-            if (GameStateHandler.Instance.RedNauts == 1)
-                StartCoroutine(Hit1());
-            else if (GameStateHandler.Instance.RedNauts == 2)
-                StartCoroutine(Hit2());
-            else if (GameStateHandler.Instance.RedNauts == 3)
-                StartCoroutine(Hit3());
         }
         else if (_other.gameObject.tag == m_BLUTagToDetect && m_RedISS)
         {

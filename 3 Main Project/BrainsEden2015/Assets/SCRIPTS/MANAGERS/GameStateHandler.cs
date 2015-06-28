@@ -227,7 +227,7 @@ public class GameStateHandler : MonoBehaviour
 		if (_redColl)
 			RedNauts++;
 		else
-			BluNauts--;
+			BluNauts++;
 		
 		SetNautsUI();
 		
@@ -248,7 +248,7 @@ public class GameStateHandler : MonoBehaviour
 				m_RedNautIndicators[_r].color = new Color(1f, 0f, 0f, 1f);
 		}
 		
-		if (BluNauts < 0)
+		if (BluNauts > 0)
 		{
 			for (int _b = 0; _b < Mathf.Abs(BluNauts); _b++)
 				m_BluNautIndicators[_b].color = new Color(0f, 0f, 1f, 1f);
