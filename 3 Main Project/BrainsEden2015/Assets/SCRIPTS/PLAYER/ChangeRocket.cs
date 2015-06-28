@@ -19,6 +19,9 @@ public class ChangeRocket : MonoBehaviour
         if (Changed)
             return;
 
+        if (!m_ShootComp.enabled)
+            return;
+
         LastRocket++;
 
         if (LastRocket == 4)
@@ -34,27 +37,20 @@ public class ChangeRocket : MonoBehaviour
             m_ShootComp.RocketType = 1;
             LastRocket = 1;
             m_TextComp.Set(0);
-            GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Naut);
+            GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Junk);
         }
         else if (_val == 2)
         {
             m_ShootComp.RocketType = 2;
             LastRocket = 2;
             m_TextComp.Set(1);
-            GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Junk);
+            GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Sprd);
         }
         else if (_val == 3)
         {
             m_ShootComp.RocketType = 3;
             LastRocket = 3;
             m_TextComp.Set(2);
-            GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Sprd);
-        }
-        else if (_val == 4)
-        {
-            m_ShootComp.RocketType = 4;
-            LastRocket = 4;
-            m_TextComp.Set(3);
             GameStateHandler.Instance.LastMissile(GameStateHandler.MissileTypes.Pull);
         }
     }
