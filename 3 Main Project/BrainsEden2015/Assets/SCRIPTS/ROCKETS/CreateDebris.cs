@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CreateDebris : MonoBehaviour {
+public class CreateDebris : MonoBehaviour 
+{
+    [SerializeField] private GameObject m_DebrisSpawnEffect;
 
 	public GameObject debris1;
 	public GameObject debris2;
@@ -40,6 +42,7 @@ public class CreateDebris : MonoBehaviour {
 			if(junkTimer <= 0){
 				Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.MakeDebris);
 				Instantiate(debrisList[Random.Range(0,3)], transform.position - transform.up, Quaternion.identity);
+                Instantiate(m_DebrisSpawnEffect, transform.position, Quaternion.identity);
 				junkTimer = 1;
 			}
 			junkTimer -= Time.deltaTime * 2f;

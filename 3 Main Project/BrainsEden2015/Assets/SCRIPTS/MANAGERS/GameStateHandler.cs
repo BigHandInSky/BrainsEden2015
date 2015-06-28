@@ -82,6 +82,9 @@ public class GameStateHandler : MonoBehaviour
 	[SerializeField] private Text m_TurnHeaderText;
 	[SerializeField] private Text m_TimerText;
 
+    [SerializeField] private ParticleSystem m_RedLauncherSelect;
+    [SerializeField] private ParticleSystem m_BluLauncherSelect;
+
     private float m_TurnSpaceLength = 8f;
 	private float m_CountdownLength = 8f;
 	
@@ -167,7 +170,8 @@ public class GameStateHandler : MonoBehaviour
         m_TurnHeaderText.text = "Attack!";
 
 		if (CurrentState == GameState.Red) //Switch to Blu Player
-		{
+        {
+            m_BluLauncherSelect.Play();
 			CurrentState = GameState.Blue;
 			
 			m_TimerText.color = new Color(0.5f, 0.5f, 1f, 1f);
@@ -188,6 +192,7 @@ public class GameStateHandler : MonoBehaviour
 		}
 		else if (CurrentState == GameState.Blue) //Switch to Red Player
 		{
+            m_RedLauncherSelect.Play();
 			CurrentState = GameState.Red;
 			
 			m_TimerText.color = new Color(1f, 0.5f, 0.5f, 1f);

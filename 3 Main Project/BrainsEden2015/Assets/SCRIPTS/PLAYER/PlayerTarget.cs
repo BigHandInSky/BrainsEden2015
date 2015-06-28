@@ -11,6 +11,8 @@ public class PlayerTarget : MonoBehaviour{
     [SerializeField] private GameObject m_RocketSprd;
     [SerializeField] private GameObject m_RocketPull;
 
+    [SerializeField] private ParticleSystem m_LauncherEffect;
+
     [SerializeField] private GameObject m_AimGuide;
     public GameObject GetGuide { get { return m_AimGuide; } }
 
@@ -157,6 +159,7 @@ public class PlayerTarget : MonoBehaviour{
     }
     private void StartRocketSpawn()
     {
+        m_LauncherEffect.Play();
         SpawnRocket();
         spaceKeyDown = false;
         touchDown = false;

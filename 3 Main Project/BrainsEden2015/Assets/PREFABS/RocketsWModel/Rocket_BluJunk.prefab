@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 15
+  GravIntensity: 2
   m_SmokeEffect: {fileID: 179720, guid: 045549eedb8585641a4316bde95b6ee4, type: 2}
   m_EarthCollideEffect: {fileID: 118182, guid: 68e9a084932e33d4dbc0c108a95ada67, type: 2}
 --- !u!114 &11455986
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d5799fc10954b4d9418f2f585c8614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DebrisSpawnEffect: {fileID: 135286, guid: 53aa53cc56f90e649b85114961af3c82, type: 2}
   debris1: {fileID: 171346, guid: 6ee5d296cd406144388f6ec5f063b808, type: 2}
   debris2: {fileID: 133416, guid: 2ed6d01a272aba14cb293903ffbe58bf, type: 2}
   debris3: {fileID: 163426, guid: 3649acd42700caf47a7efbcd09009e58, type: 2}
@@ -209,6 +211,10 @@ Prefab:
       propertyPath: m_SmokeEffect
       value: 
       objectReference: {fileID: 179720, guid: 045549eedb8585641a4316bde95b6ee4, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_DebrisSpawnEffect
+      value: 
+      objectReference: {fileID: 135286, guid: 53aa53cc56f90e649b85114961af3c82, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150444}
