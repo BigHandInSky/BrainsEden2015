@@ -73,7 +73,7 @@ public class PlayerTarget : MonoBehaviour{
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
 
-        if (IsRed)
+		if (IsRed && !Application.isMobilePlatform)
         {
             if (Input.GetAxis("Red Player Rotate Left") > 0.1f)
             {
@@ -90,10 +90,11 @@ public class PlayerTarget : MonoBehaviour{
             }
             else if (Input.GetAxis("Red Player Fire") < 0.1f && rocketPower > 0.01f)
             {
-                StartRocketSpawn();
+
+				StartRocketSpawn();
             }
         }
-        else if (!IsRed)
+		else if (!IsRed && !Application.isMobilePlatform)
         {
             if (Input.GetAxis("Blue Player Rotate Left") > 0.1f)
             {
@@ -110,18 +111,18 @@ public class PlayerTarget : MonoBehaviour{
             }
             else if (Input.GetAxis("Blue Player Fire") < 0.1f && rocketPower > 0.01f)
             {
-                StartRocketSpawn();
+
+				StartRocketSpawn();
             }
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && delayTimer <= 0 && !eventsystem.IsPointerOverGameObject())
-        {
-            spaceKeyDown = true;
-        }
-		else if (touchDown && delayTimer <= 0)
+		}
+		if (touchDown && delayTimer <= 0)
 		{
 			spaceKeyDown = true;
+		}
+		if (touchUp && rocketPower > 0.01f)
+		{
+			StartRocketSpawn();
+			Debug.Log("StartRocketSpawn");
 		}
 
 		if (spaceKeyDown) {
@@ -136,19 +137,12 @@ public class PlayerTarget : MonoBehaviour{
 			touchDown = false;
 			touchUp = false;
 		}
-
-        if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
-        {
-            StartRocketSpawn();
-        }
-		if (touchUp && rocketPower > 0.01f) {
-            StartRocketSpawn();
-		}
 		delayTimer -= Time.deltaTime;
 	}
 
     void OnDisable()
     {
+		Debug.Log ("on disable player shoot");
 		if (spaceKeyDown)
         {
             SpawnRocket();
@@ -158,7 +152,7 @@ public class PlayerTarget : MonoBehaviour{
         }
     }
     private void StartRocketSpawn()
-    {
+	{
         m_LauncherEffect.Play();
         SpawnRocket();
         spaceKeyDown = false;
@@ -170,9 +164,9 @@ public class PlayerTarget : MonoBehaviour{
         GameStateHandler.Instance.SwitchState();
     }
     private void SpawnRocket()
-    {
+	{
+		Debug.Log ("SpawnRocket");
 		//Hold for 2 second for max power
-
 		if (rocketPower > 2)
 			rocketPower = 2;
 
