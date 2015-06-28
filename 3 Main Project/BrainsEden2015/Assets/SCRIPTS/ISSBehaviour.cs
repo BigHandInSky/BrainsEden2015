@@ -16,7 +16,7 @@ public class ISSBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision _other)
     {
-        if (_other.gameObject.name.Contains("Rocket") && !m_RedISS)
+        if (_other.gameObject.tag == m_REDTagToDetect && !m_RedISS)
         {
             m_hits++;
             StartCoroutine("Hit" + m_hits.ToString());
@@ -24,7 +24,7 @@ public class ISSBehaviour : MonoBehaviour
             GameStateHandler.Instance.ISSHit(true);
             DestroyObject(_other.gameObject);
         }
-        else if (_other.gameObject.name.Contains("Rocket") && m_RedISS)
+        else if (_other.gameObject.tag == m_BLUTagToDetect && m_RedISS)
         {
             m_hits++;
             StartCoroutine("Hit" + m_hits.ToString());
@@ -38,6 +38,8 @@ public class ISSBehaviour : MonoBehaviour
     {
         Debug.Log("hit1");
 
+		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
+
         m_Hit1Effect.SetActive(true);
         yield return new WaitForSeconds(1.8f);
         DestroyObject(m_Hit1Effect);
@@ -47,6 +49,8 @@ public class ISSBehaviour : MonoBehaviour
     {
         Debug.Log("hit2");
 
+		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
+
         m_Hit2Effect.SetActive(true);
         yield return new WaitForSeconds(1.9f);
         DestroyObject(m_Hit2Effect);
@@ -54,6 +58,8 @@ public class ISSBehaviour : MonoBehaviour
     IEnumerator Hit3()
     {
         Debug.Log("hit3");
+
+		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
 
         m_Hit3Effect.SetActive(true);
         yield return new WaitForSeconds(1.9f);

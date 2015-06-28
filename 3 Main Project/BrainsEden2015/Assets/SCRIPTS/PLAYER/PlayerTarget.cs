@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerTarget : MonoBehaviour {
@@ -25,60 +23,37 @@ public class PlayerTarget : MonoBehaviour {
 	public float rocketPower;
 
 	public bool spaceKeyDown = false;
-	float anglePlayer;
-
-    private EventSystem eventsystem;
-    
-    void Start()
-    {
-        eventsystem = GameObject.FindObjectOfType<EventSystem>();
-    }
 	
-    public void Rotate(bool _rotLeft)
-    {
-        if(_rotLeft)
-        {
-            if (anglePlayer + (30 * Time.deltaTime * moveSpeed) < 0 && transform.tag == "LauncherBLUE")
-                transform.Rotate(0, 0, 30 * Time.deltaTime * moveSpeed, Space.World);
-            else if (anglePlayer + (30 * Time.deltaTime * moveSpeed) < 180 && transform.tag == "LauncherRED")
-            {
-                transform.Rotate(0, 0, 30 * Time.deltaTime * moveSpeed, Space.World);
-            }
-        }
-        else
-        {
-            if (anglePlayer - (30 * Time.deltaTime * moveSpeed) > -180 && transform.tag == "LauncherBLUE")
-                transform.Rotate(0, 0, -30 * Time.deltaTime * moveSpeed, Space.World);
-            else if (anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0 && transform.tag == "LauncherRED")
-            {
-                transform.Rotate(0, 0, -30 * Time.deltaTime * moveSpeed, Space.World);
-            }
-        }
-    }
 
 	void Update() 
     {
-		anglePlayer = Mathf.Atan2(transform.up.y, transform.up.x) * 180 / 3.14f;
+		float anglePlayer = Mathf.Atan2(transform.up.y, transform.up.x) * 180 / 3.14f;
+		Debug.Log (anglePlayer);
 
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
 		
 		if (Input.GetKey (KeyCode.A)) {
-            Rotate(true);
+			if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 0  && transform.tag == "LauncherBLUE")
+				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			else if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 180 && transform.tag == "LauncherRED")
+			{
+				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
+			}
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-            Rotate(false);
+			if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > -180  && transform.tag == "LauncherBLUE")
+				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			else if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0 && transform.tag == "LauncherRED")
+			{
+				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
+			}
 		}
 
 
         if (Input.GetKeyDown (KeyCode.Space) && delayTimer <= 0) {
 			spaceKeyDown = true;
 		}
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && delayTimer <= 0 && !eventsystem.IsPointerOverGameObject())
-        {
-            spaceKeyDown = true;
-        }
-
 		if (spaceKeyDown) {
 			rocketPower += Time.deltaTime;
 			if (rocketPower <= 2)
@@ -91,42 +66,24 @@ public class PlayerTarget : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
+			GameStateHandler.Instance.SwitchState ();
 			SpawnRocket ();
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
-            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-            GameStateHandler.Instance.SwitchState();
-        }
-        else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
-        {
-            SpawnRocket();
-            spaceKeyDown = false;
-            delayTimer = 0.5f;
-            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-            GameStateHandler.Instance.SwitchState();
-        }
+			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,0,0);
+
+			Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Shoot);
+		}
 		delayTimer -= Time.deltaTime;
 	}
 
-    void OnDisable()
-    {
-		if (spaceKeyDown)
-        {
-            SpawnRocket();
-            spaceKeyDown = false;
-            delayTimer = 0.5f;
-            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-        }
-    }
     private void SpawnRocket()
     {
 		//Hold for 2 second for max power
-
 		if (rocketPower > 2)
 			rocketPower = 2;
-
-		rocketPower = 1.1f + rocketPower / 2  * 0.25f;
-
+		if (rocketPower < 1f)
+			rocketPower = 1.5f;
 		rocketPower /= 2;
 
         GameObject _Rocket;
@@ -138,16 +95,6 @@ public class PlayerTarget : MonoBehaviour {
 			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
 			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 			_Rocket.GetComponent<RocketOrbitBehavior> ().maxSpeed *= rocketPower;
-
-			anglePlayer = Mathf.Abs(anglePlayer);
-			if(anglePlayer > 90){
-				anglePlayer -= 90;
-				anglePlayer = 90 - anglePlayer;
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}else
-			{
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}
 		} else if (RocketType == 2)
 		{
 			_Rocket = (GameObject)Instantiate (m_RocketJunk, muzzle.transform.position, Quaternion.identity);
@@ -156,16 +103,6 @@ public class PlayerTarget : MonoBehaviour {
 			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
 			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 			_Rocket.GetComponent<RocketOrbitBehavior> ().maxSpeed *= rocketPower;
-
-			anglePlayer = Mathf.Abs(anglePlayer);
-			if(anglePlayer > 90){
-				anglePlayer -= 90;
-				anglePlayer = 90 - anglePlayer;
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}else
-			{
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}
 		} else if (RocketType == 3)
 		{
 			_Rocket = (GameObject)Instantiate (m_RocketSprd, muzzle.transform.position, Quaternion.identity);
@@ -174,16 +111,6 @@ public class PlayerTarget : MonoBehaviour {
 			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
 			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 			_Rocket.GetComponent<RocketOrbitBehavior> ().maxSpeed *= rocketPower;
-
-			anglePlayer = Mathf.Abs(anglePlayer);
-			if(anglePlayer > 90){
-				anglePlayer -= 90;
-				anglePlayer = 90 - anglePlayer;
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}else
-			{
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}
 		} else if (RocketType == 4) 
 		{
 			_Rocket = (GameObject)Instantiate (m_RocketPull, muzzle.transform.position, Quaternion.identity);
@@ -192,16 +119,6 @@ public class PlayerTarget : MonoBehaviour {
 			_Rocket.GetComponent<Rigidbody> ().velocity = velocity;
 			_Rocket.transform.eulerAngles = new Vector3 (0, 0, 90 + Mathf.Atan2 (-velocity.y, -velocity.x) * 180 / 3.14f);
 			_Rocket.GetComponent<RocketOrbitBehavior> ().maxSpeed *= rocketPower;
-
-			anglePlayer = Mathf.Abs(anglePlayer);
-			if(anglePlayer > 90){
-				anglePlayer -= 90;
-				anglePlayer = 90 - anglePlayer;
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}else
-			{
-				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
-			}
 		}
 
 		rocketPower = 0;
