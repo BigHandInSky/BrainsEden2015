@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c97f9c433c91f54e8a3a21b7bfddab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RocketNaut: {fileID: 146248, guid: 0cb24338621c98f43a10a9342c72d755, type: 2}
   m_RocketJunk: {fileID: 159960, guid: b947aa2d49c37b04db2889b10a4e5483, type: 2}
   m_RocketSprd: {fileID: 196186, guid: dd7546fce698e4c46a9954aa0d7788b5, type: 2}
   m_RocketPull: {fileID: 136142, guid: de4c57a3952a4744482015c7259f0d08, type: 2}
@@ -249,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3534235caceaee9498e179d0ae137d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsRed: 1
   m_TextComp: {fileID: 1498638581}
 --- !u!1001 &31694310
 Prefab:
@@ -405,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c97f9c433c91f54e8a3a21b7bfddab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RocketNaut: {fileID: 169576, guid: fbe0d8f77d911994c89457a421c88167, type: 2}
   m_RocketJunk: {fileID: 150444, guid: 1fdb7dd46372d9847b6e0cf41c27fe62, type: 2}
   m_RocketSprd: {fileID: 148004, guid: 823de4ab778f5554b9f286defb426c93, type: 2}
   m_RocketPull: {fileID: 176938, guid: 368e5d17e65c6a44c9faa19903d54c21, type: 2}
@@ -429,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3534235caceaee9498e179d0ae137d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsRed: 0
   m_TextComp: {fileID: 20268811}
 --- !u!108 &92051076 stripped
 Light:
@@ -1492,6 +1492,10 @@ Prefab:
       propertyPath: BluNauts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
+      propertyPath: m_TurnHeaderText
+      value: 
+      objectReference: {fileID: 1021677226}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
   m_IsPrefabParent: 0
@@ -1995,7 +1999,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 68}
+  m_AnchoredPosition: {x: 0, y: 33}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1021677226
@@ -2013,7 +2017,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 87c316b602156405d92e616621658222, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -2023,15 +2027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[A/D] - Aim
-
-    [Space/Click/Press]
-
-    Hold to Charge, Release to Fire
-
-    [1-4] - Change Rocket Type
-
-    [Esc] - Return to Menu'
+  m_Text: OOSA GET READY
 --- !u!222 &1021677227
 CanvasRenderer:
   m_ObjectHideFlags: 0

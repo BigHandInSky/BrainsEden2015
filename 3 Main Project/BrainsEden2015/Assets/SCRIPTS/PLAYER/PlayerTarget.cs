@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.Events;
 
-public class PlayerTarget : MonoBehaviour {
+public class PlayerTarget : MonoBehaviour{
 
     [SerializeField] private GameObject m_RocketNaut;
     [SerializeField] private GameObject m_RocketJunk;
@@ -25,7 +25,14 @@ public class PlayerTarget : MonoBehaviour {
 	public float rocketPower;
 
 	public bool spaceKeyDown = false;
+
+	public bool touchDown = false;
+	public bool touchUp = false;
+
 	float anglePlayer;
+
+
+	private GameObject touchPointer;
 
     private EventSystem eventsystem;
     
@@ -78,6 +85,10 @@ public class PlayerTarget : MonoBehaviour {
         {
             spaceKeyDown = true;
         }
+		else if (touchDown && delayTimer <= 0)
+		{
+			spaceKeyDown = true;
+		}
 
 		if (spaceKeyDown) {
 			rocketPower += Time.deltaTime;
@@ -105,6 +116,16 @@ public class PlayerTarget : MonoBehaviour {
             transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
             GameStateHandler.Instance.SwitchState();
         }
+		if (touchUp && rocketPower > 0.01f) {
+			SpawnRocket ();
+			spaceKeyDown = false;
+			touchDown = false;
+			touchUp = false;
+
+			delayTimer = 0.5f;
+			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+			GameStateHandler.Instance.SwitchState();
+		}
 		delayTimer -= Time.deltaTime;
 	}
 
@@ -203,6 +224,11 @@ public class PlayerTarget : MonoBehaviour {
 				_Rocket.GetComponent<RocketOrbitBehavior> ().GravIntensity += anglePlayer / 90 * 2.2f;
 			}
 		}
+
+		if (transform.tag == "LauncherBLUE")
+			transform.eulerAngles = new Vector3 (0, 0, 180);
+		if (transform.tag == "LauncherRED")
+			transform.eulerAngles = new Vector3 (0, 0, 0);
 
 		rocketPower = 0;
     }
