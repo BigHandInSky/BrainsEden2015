@@ -39,7 +39,11 @@ public class Manager_Audio : MonoBehaviour
     public enum EffectsType
     {
         Button,
-        Example
+        Explosion,
+		Shoot,
+		Woosh,
+		Damage,
+		MakeDebris
     }
 
     public void PlayEffect(EffectsType _type)
@@ -56,9 +60,24 @@ public class Manager_Audio : MonoBehaviour
 
         switch (_clipType)
         {
-            case EffectsType.Button:
-                _selected = 0;
-                break;
+	        case EffectsType.Button:
+	            _selected = 0;
+	            break;
+			case EffectsType.Explosion:
+				_selected = Random.Range(0,2);
+				break;
+			case EffectsType.Shoot:
+				_selected = 3;
+				break;
+			case EffectsType.Woosh:
+				_selected = 3;
+				break;
+			case EffectsType.Damage:
+				_selected = 4;
+				break;
+			case EffectsType.MakeDebris:
+				_selected = 5;
+				break;
         }
 
         CreateObj(Effects[_selected]);
