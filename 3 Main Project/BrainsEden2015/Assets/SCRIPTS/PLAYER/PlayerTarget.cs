@@ -98,6 +98,8 @@ public class PlayerTarget : MonoBehaviour{
 			transform.Find ("Cannon/AimGuide").transform.localPosition = new Vector3 (0, 0, 0);
 			rocketPower = 0;
 			spaceKeyDown = false;
+			touchDown = false;
+			touchUp = false;
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
