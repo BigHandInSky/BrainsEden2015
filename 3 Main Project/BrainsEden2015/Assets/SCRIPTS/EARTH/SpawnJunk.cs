@@ -25,24 +25,24 @@ public class SpawnJunk : MonoBehaviour
 		for (int i = 0; i<3; i++) 
 		{
 			//Vector3 position = new Vector3 (Random.Range (500, 1000), Random.Range (500, 1000), 0);
-			Instantiate(debrisList[i], new Vector3 (Random.Range (0, 10), Random.Range (0, 10), 0), Quaternion.identity);
+			Instantiate(debrisList[i], new Vector3 (Random.Range (-10, -6), Random.Range (-10, 10), 0), Quaternion.identity);
 		}
 
 		for (int i = 0; i<3; i++) 
 		{
 			//Vector3 position = new Vector3 (Random.Range (500, 1000), Random.Range (500, 1000), 0);
-			Instantiate(debrisList[i], new Vector3 (Random.Range (0, -10), Random.Range (0, -10), 0), Quaternion.identity);
+			Instantiate(debrisList[i], new Vector3 (Random.Range (-10, 10), Random.Range (6, 10), 0), Quaternion.identity);
 		}
 		for (int i = 0; i<3; i++) 
 		{
 			//Vector3 position = new Vector3 (Random.Range (500, 1000), Random.Range (500, 1000), 0);
-			Instantiate(debrisList[i], new Vector3 (Random.Range (-10, 0), Random.Range (0, 10), 0), Quaternion.identity);
+			Instantiate(debrisList[i], new Vector3 (Random.Range (6, 10), Random.Range (-10, 10), 0), Quaternion.identity);
 		}
 		
 		for (int i = 0; i<3; i++) 
 		{
 			//Vector3 position = new Vector3 (Random.Range (500, 1000), Random.Range (500, 1000), 0);
-			Instantiate(debrisList[i], new Vector3 (Random.Range (0, 10), Random.Range (-10, 0), 0), Quaternion.identity);
+			Instantiate(debrisList[i], new Vector3 (Random.Range (-10, 10), Random.Range (-6, -10), 0), Quaternion.identity);
 		}
 
 
