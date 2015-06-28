@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerTarget : MonoBehaviour {
@@ -24,7 +26,35 @@ public class PlayerTarget : MonoBehaviour {
 
 	public bool spaceKeyDown = false;
 	float anglePlayer;
+
+    private EventSystem eventsystem;
+    
+    void Start()
+    {
+        eventsystem = GameObject.FindObjectOfType<EventSystem>();
+    }
 	
+    public void Rotate(bool _rotLeft)
+    {
+        if(_rotLeft)
+        {
+            if (anglePlayer + (30 * Time.deltaTime * moveSpeed) < 0 && transform.tag == "LauncherBLUE")
+                transform.Rotate(0, 0, 30 * Time.deltaTime * moveSpeed, Space.World);
+            else if (anglePlayer + (30 * Time.deltaTime * moveSpeed) < 180 && transform.tag == "LauncherRED")
+            {
+                transform.Rotate(0, 0, 30 * Time.deltaTime * moveSpeed, Space.World);
+            }
+        }
+        else
+        {
+            if (anglePlayer - (30 * Time.deltaTime * moveSpeed) > -180 && transform.tag == "LauncherBLUE")
+                transform.Rotate(0, 0, -30 * Time.deltaTime * moveSpeed, Space.World);
+            else if (anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0 && transform.tag == "LauncherRED")
+            {
+                transform.Rotate(0, 0, -30 * Time.deltaTime * moveSpeed, Space.World);
+            }
+        }
+    }
 
 	void Update() 
     {
@@ -34,26 +64,21 @@ public class PlayerTarget : MonoBehaviour {
             return;
 		
 		if (Input.GetKey (KeyCode.A)) {
-			if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 0  && transform.tag == "LauncherBLUE")
-				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(anglePlayer + (30 * Time.deltaTime * moveSpeed) < 180 && transform.tag == "LauncherRED")
-			{
-				transform.Rotate(0, 0 , 30 * Time.deltaTime * moveSpeed, Space.World);
-			}
+            Rotate(true);
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-			if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > -180  && transform.tag == "LauncherBLUE")
-				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			else if(anglePlayer - (30 * Time.deltaTime * moveSpeed) > 0 && transform.tag == "LauncherRED")
-			{
-				transform.Rotate(0, 0 , -30 * Time.deltaTime * moveSpeed, Space.World);
-			}
+            Rotate(false);
 		}
 
 
         if (Input.GetKeyDown (KeyCode.Space) && delayTimer <= 0) {
 			spaceKeyDown = true;
 		}
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && delayTimer <= 0 && !eventsystem.IsPointerOverGameObject())
+        {
+            spaceKeyDown = true;
+        }
+
 		if (spaceKeyDown) {
 			rocketPower += Time.deltaTime;
 			if (rocketPower <= 2)
@@ -71,7 +96,15 @@ public class PlayerTarget : MonoBehaviour {
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
 			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,0,0);
-		}
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
+        {
+            GameStateHandler.Instance.SwitchState();
+            SpawnRocket();
+            spaceKeyDown = false;
+            delayTimer = 0.5f;
+            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+        }
 		delayTimer -= Time.deltaTime;
 	}
 

@@ -79,6 +79,8 @@ public class GameStateHandler : MonoBehaviour
 	
 	[SerializeField] private Text m_ControlsText;
 	[SerializeField] private Text m_TimerText;
+
+    private float m_TurnSpaceLength = 3f;
 	private float m_CountdownLength = 5f;
 	
 	public bool nauts_ui_debug = false;
@@ -135,7 +137,7 @@ public class GameStateHandler : MonoBehaviour
         m_GuideTextBlu.SetVisible(false);
 		
 		m_TimerText.color = new Color(1f, 1f, 1f, 1f);
-		float _time = 2.5f;
+        float _time = m_TurnSpaceLength;
 		while (_time > 0f)
 		{
 			_time -= Time.deltaTime;
