@@ -9,9 +9,9 @@ PlayerSettings:
   targetDevice: 2
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: Beds
-  productName: BrainsEden2015
-  defaultCursor: {fileID: 0}
+  companyName: Team Beds
+  productName: The Coldest War
+  defaultCursor: {fileID: 2800000, guid: 7338e146fac1ce74fab2a8616cee29a8, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
   defaultScreenWidth: 1024
@@ -135,7 +135,7 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 0a5b7883262dc7846b8baf59ab1e4a53, type: 3}
       m_Size: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
