@@ -38,8 +38,6 @@ public class ISSBehaviour : MonoBehaviour
 
     IEnumerator Hit1()
     {
-        Debug.Log("hit1");
-
 		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
 		
         m_Hit1Effect.SetActive(true);
@@ -49,8 +47,6 @@ public class ISSBehaviour : MonoBehaviour
     }
     IEnumerator Hit2()
     {
-        Debug.Log("hit2");
-
 		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
 		
         m_Hit2Effect.SetActive(true);
@@ -59,8 +55,6 @@ public class ISSBehaviour : MonoBehaviour
     }
     IEnumerator Hit3()
     {
-        Debug.Log("hit3");
-
 		Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Explosion);
 		
         m_Hit3Effect.SetActive(true);

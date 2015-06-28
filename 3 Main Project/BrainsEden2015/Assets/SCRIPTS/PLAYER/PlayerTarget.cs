@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerTarget : MonoBehaviour{
 
+    [SerializeField] private bool IsRed = false;
+
     [SerializeField] private GameObject m_RocketJunk;
     [SerializeField] private GameObject m_RocketSprd;
     [SerializeField] private GameObject m_RocketPull;
@@ -68,19 +70,50 @@ public class PlayerTarget : MonoBehaviour{
 
         if (GameStateHandler.Instance.CurrentState == GameStateHandler.GameState.End)
             return;
-		
-		if (Input.GetKey (KeyCode.A)) {
-            Rotate(true);
-		}
-		else if (Input.GetKey (KeyCode.D)) {
-            Rotate(false);
-		}
+
+        if (IsRed)
+        {
+            if (Input.GetAxis("Red Player Rotate Left") > 0.1f)
+            {
+                Rotate(true);
+            }
+            else if (Input.GetAxis("Red Player Rotate Right") > 0.1f)
+            {
+                Rotate(false);
+            }
+
+            if (Input.GetAxis("Red Player Fire") > 0.1f && delayTimer <= 0)
+            {
+		        spaceKeyDown = true;
+            }
+            else if (Input.GetAxis("Red Player Fire") < 0.1f && rocketPower > 0.01f)
+            {
+                StartRocketSpawn();
+            }
+        }
+        else if (!IsRed)
+        {
+            if (Input.GetAxis("Blue Player Rotate Left") > 0.1f)
+            {
+                Rotate(true);
+            }
+            else if (Input.GetAxis("Blue Player Rotate Right") > 0.1f)
+            {
+                Rotate(false);
+            }
+
+            if (Input.GetAxis("Blue Player Fire") > 0.1f && delayTimer <= 0)
+            {
+                spaceKeyDown = true;
+            }
+            else if (Input.GetAxis("Blue Player Fire") < 0.1f && rocketPower > 0.01f)
+            {
+                StartRocketSpawn();
+            }
+        }
 
 
-        if (Input.GetKeyDown (KeyCode.Space) && delayTimer <= 0) {
-			spaceKeyDown = true;
-		}
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && delayTimer <= 0 && !eventsystem.IsPointerOverGameObject())
+        if (Input.GetKeyDown(KeyCode.Mouse0) && delayTimer <= 0 && !eventsystem.IsPointerOverGameObject())
         {
             spaceKeyDown = true;
         }
@@ -100,31 +133,12 @@ public class PlayerTarget : MonoBehaviour{
 			spaceKeyDown = false;
 		}
 
-		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
-			SpawnRocket ();
-			spaceKeyDown = false;
-			delayTimer = 0.5f;
-            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-			Manager_Audio.Instance.PlayEffect (Manager_Audio.EffectsType.Shoot);
-            GameStateHandler.Instance.SwitchState();
-        }
-        else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
+        if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
         {
-            SpawnRocket();
-            spaceKeyDown = false;
-            delayTimer = 0.5f;
-            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-            GameStateHandler.Instance.SwitchState();
+            StartRocketSpawn();
         }
 		if (touchUp && rocketPower > 0.01f) {
-			SpawnRocket ();
-			spaceKeyDown = false;
-			touchDown = false;
-			touchUp = false;
-
-			delayTimer = 0.5f;
-			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
-			GameStateHandler.Instance.SwitchState();
+            StartRocketSpawn();
 		}
 		delayTimer -= Time.deltaTime;
 	}
@@ -138,6 +152,17 @@ public class PlayerTarget : MonoBehaviour{
             delayTimer = 0.5f;
             transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
         }
+    }
+    private void StartRocketSpawn()
+    {
+        SpawnRocket();
+        spaceKeyDown = false;
+        touchDown = false;
+        touchUp = false;
+        delayTimer = 0.5f;
+        transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+        Manager_Audio.Instance.PlayEffect(Manager_Audio.EffectsType.Shoot);
+        GameStateHandler.Instance.SwitchState();
     }
     private void SpawnRocket()
     {
