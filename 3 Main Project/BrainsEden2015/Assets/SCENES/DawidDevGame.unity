@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c97f9c433c91f54e8a3a21b7bfddab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RocketNaut: {fileID: 146248, guid: 0cb24338621c98f43a10a9342c72d755, type: 2}
   m_RocketJunk: {fileID: 159960, guid: b947aa2d49c37b04db2889b10a4e5483, type: 2}
   m_RocketSprd: {fileID: 196186, guid: dd7546fce698e4c46a9954aa0d7788b5, type: 2}
   m_RocketPull: {fileID: 136142, guid: de4c57a3952a4744482015c7259f0d08, type: 2}
@@ -249,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3534235caceaee9498e179d0ae137d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsRed: 0
   m_TextComp: {fileID: 1498638581}
 --- !u!1001 &31694310
 Prefab:
@@ -405,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c97f9c433c91f54e8a3a21b7bfddab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RocketNaut: {fileID: 169576, guid: fbe0d8f77d911994c89457a421c88167, type: 2}
   m_RocketJunk: {fileID: 150444, guid: 1fdb7dd46372d9847b6e0cf41c27fe62, type: 2}
   m_RocketSprd: {fileID: 148004, guid: 823de4ab778f5554b9f286defb426c93, type: 2}
   m_RocketPull: {fileID: 176938, guid: 368e5d17e65c6a44c9faa19903d54c21, type: 2}
@@ -429,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3534235caceaee9498e179d0ae137d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsRed: 0
   m_TextComp: {fileID: 20268811}
 --- !u!108 &92051076 stripped
 Light:
@@ -1701,7 +1701,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 410462, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11447014, guid: f1eacf90dbffd764f8e0bc410c2af2b6, type: 2}
       propertyPath: Effects.Array.data[0]
