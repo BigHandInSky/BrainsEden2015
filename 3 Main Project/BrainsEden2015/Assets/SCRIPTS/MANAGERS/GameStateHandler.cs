@@ -229,6 +229,7 @@ public class GameStateHandler : MonoBehaviour
 	private void EndGame()
 	{
 		StopAllCoroutines();
+        m_TurnHeaderText.text = "";
 		m_TimerText.text = "";
 		CurrentState = GameState.End;
 		
