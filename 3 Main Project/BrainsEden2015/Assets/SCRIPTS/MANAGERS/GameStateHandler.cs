@@ -19,9 +19,11 @@ public class GameStateHandler : MonoBehaviour
 			DestroyObject(this.gameObject);
 		else
 			m_Instance = this;
-		
-		//setup game
-		LastMissile(MissileTypes.None);
+
+        //setup game
+        m_BluMissileInd.sprite = m_MissileJunk;
+        m_RedMissileInd.sprite = m_MissileJunk;
+
 		SetNautsUI();
 		
 		//random pick who starts
@@ -77,7 +79,7 @@ public class GameStateHandler : MonoBehaviour
 	[SerializeField] private Sprite m_MissileVictory;
 	[SerializeField] private Sprite m_MissileFail;
 	
-	[SerializeField] private Text m_ControlsText;
+	[SerializeField] private Text m_TurnHeaderText;
 	[SerializeField] private Text m_TimerText;
 
     private float m_TurnSpaceLength = 8f;
@@ -121,7 +123,6 @@ public class GameStateHandler : MonoBehaviour
 		}
 		
 		m_StatesRan++;
-		m_ControlsText.color = new Color(1f, 1f, 1f, (10 - m_StatesRan) * 0.1f);
 		
 		StartCoroutine(SwitchDo());
 	}
@@ -136,6 +137,19 @@ public class GameStateHandler : MonoBehaviour
         m_GuideTextRed.SetVisible(false);
         m_GuideTextBlu.SetVisible(false);
 		
+		if (CurrentState == GameState.Red) //Switching to Blu Player
+		{
+            m_TurnHeaderText.color = new Color(0f, 0f, 1f, 0.8f);
+            m_TurnHeaderText.text = "OOSA Get Ready";
+		}
+		else if (CurrentState == GameState.Blue) //Switching to Red Player
+        {
+            m_TurnHeaderText.color = new Color(1f, 0f, 0f, 0.8f);
+            m_TurnHeaderText.text = "ROOSA Get Ready";
+		}
+
+
+
 		m_TimerText.color = new Color(1f, 1f, 1f, 1f);
         float _time = m_TurnSpaceLength;
 		while (_time > 0f)
@@ -146,8 +160,12 @@ public class GameStateHandler : MonoBehaviour
 		}
         if (m_TurnSpaceLength > 5f)
             m_TurnSpaceLength -= 1f;
-		
-		
+
+
+
+
+        m_TurnHeaderText.text = "Attack!";
+
 		if (CurrentState == GameState.Red) //Switch to Blu Player
 		{
 			CurrentState = GameState.Blue;
@@ -165,7 +183,8 @@ public class GameStateHandler : MonoBehaviour
 			bluPlayerMove.GetGuide.SetActive(true);
 			
 			redPlayerMove.enabled = false;
-			bluPlayerMove.enabled = true;
+            bluPlayerMove.enabled = true;
+
 		}
 		else if (CurrentState == GameState.Blue) //Switch to Red Player
 		{
@@ -268,22 +287,11 @@ public class GameStateHandler : MonoBehaviour
 		Pull
 	}
 	public void LastMissile(MissileTypes _type)
-	{
-		if(CurrentState == GameState.Start)
-		{
-			Debug.Log("lastmissile start");
-			m_RedMissileInd.sprite = m_MissileNaut;
-			m_BluMissileInd.sprite = m_MissileNaut;
-			return;
-		}
-		
+	{		
 		if(CurrentState == GameState.Red)
 		{
 			switch (_type)
 			{
-			case MissileTypes.Naut:
-				m_RedMissileInd.sprite = m_MissileNaut;
-				break;
 			case MissileTypes.Junk:
 				m_RedMissileInd.sprite = m_MissileJunk;
 				break;
@@ -299,9 +307,6 @@ public class GameStateHandler : MonoBehaviour
 		{
 			switch (_type)
 			{
-			case MissileTypes.Naut:
-				m_BluMissileInd.sprite = m_MissileNaut;
-				break;
 			case MissileTypes.Junk:
 				m_BluMissileInd.sprite = m_MissileJunk;
 				break;

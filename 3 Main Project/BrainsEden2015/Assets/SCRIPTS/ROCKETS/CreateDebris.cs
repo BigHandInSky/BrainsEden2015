@@ -38,7 +38,7 @@ public class CreateDebris : MonoBehaviour {
 		if(delayTimer <= 0 && GetComponent<Rigidbody> ().velocity.magnitude > 3){
 			//Vector3 position = new Vector3(Random.Range(minValue, maxValue), Random.Range(minValue, maxValue), 0);
 			if(junkTimer <= 0){
-				Manager_Audio.Instance.PlayEffect(5);
+				//Manager_Audio.Instance.PlayEffect(5);
 				Instantiate(debrisList[Random.Range(0,3)], transform.position - transform.up, Quaternion.identity);
 				junkTimer = 1;
 			}
