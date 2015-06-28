@@ -14,7 +14,6 @@ public class PlayerTouchControl : MonoBehaviour, IPointerDownHandler, IPointerUp
 	public GameObject world;
 	
 	public void OnPointerDown(PointerEventData data){
-		Debug.Log("pointer down");
 		setAngle (data);
 		if(redPlayer.GetComponent<PlayerTarget>().isActiveAndEnabled)
 			redPlayer.GetComponent<PlayerTarget> ().touchDown = true;
@@ -23,7 +22,6 @@ public class PlayerTouchControl : MonoBehaviour, IPointerDownHandler, IPointerUp
 	}
 	
 	public void OnPointerUp(PointerEventData data){
-		Debug.Log("pointer up");
 		setAngle (data);
 		if(redPlayer.GetComponent<PlayerTarget>().isActiveAndEnabled)
 			redPlayer.GetComponent<PlayerTarget> ().touchUp = true;
