@@ -91,19 +91,19 @@ public class PlayerTarget : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space) && rocketPower > 0.01f) {
-			GameStateHandler.Instance.SwitchState ();
 			SpawnRocket ();
 			spaceKeyDown = false;
 			delayTimer = 0.5f;
-			transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0,0,0);
+            transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+            GameStateHandler.Instance.SwitchState();
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0) && rocketPower > 0.01f && !eventsystem.IsPointerOverGameObject())
         {
-            GameStateHandler.Instance.SwitchState();
             SpawnRocket();
             spaceKeyDown = false;
             delayTimer = 0.5f;
             transform.Find("Cannon/AimGuide").transform.localPosition = new Vector3(0, 0, 0);
+            GameStateHandler.Instance.SwitchState();
         }
 		delayTimer -= Time.deltaTime;
 	}

@@ -16,7 +16,7 @@ public class ISSBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision _other)
     {
-        if (_other.gameObject.tag == m_REDTagToDetect && !m_RedISS)
+        if (_other.gameObject.name.Contains("Rocket") && !m_RedISS)
         {
             m_hits++;
             StartCoroutine("Hit" + m_hits.ToString());
@@ -24,7 +24,7 @@ public class ISSBehaviour : MonoBehaviour
             GameStateHandler.Instance.ISSHit(true);
             DestroyObject(_other.gameObject);
         }
-        else if (_other.gameObject.tag == m_BLUTagToDetect && m_RedISS)
+        else if (_other.gameObject.name.Contains("Rocket") && m_RedISS)
         {
             m_hits++;
             StartCoroutine("Hit" + m_hits.ToString());

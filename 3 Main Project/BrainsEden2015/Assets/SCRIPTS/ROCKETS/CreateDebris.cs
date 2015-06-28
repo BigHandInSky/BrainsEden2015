@@ -16,7 +16,7 @@ public class CreateDebris : MonoBehaviour {
 	public float maxValue;
 
 
-	private float delayTimer = 1.5f;
+	private float delayTimer = 0.5f;
 	private float junkTimer = 0;
 
 	// Use this for initialization
@@ -41,7 +41,7 @@ public class CreateDebris : MonoBehaviour {
 				Instantiate(debrisList[Random.Range(0,3)], transform.position - transform.up, Quaternion.identity);
 				junkTimer = 1;
 			}
-			junkTimer -= Time.deltaTime;
+			junkTimer -= Time.deltaTime * 2f;
 		}
 	}
 }

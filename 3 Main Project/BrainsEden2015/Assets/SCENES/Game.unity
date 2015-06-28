@@ -172,12 +172,12 @@ MonoBehaviour:
   Title: {fileID: 1982416654}
   PPtr<Object>: {fileID: 2084922699}
   Titles:
-  - ISS-Bomb
+  - Junk Clearer
   - Junker
   - Push
   - Pull
   Bases:
-  - Destroys ISS
+  - Clears Junk it hits
   - Leaves Junk as it moves
   - Pushes Junk away as it moves
   - Pulls in Junk as it moves
@@ -1486,11 +1486,11 @@ Prefab:
       objectReference: {fileID: 20268811}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: RedNauts
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11432498, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
       propertyPath: BluNauts
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65eee1a82f86bdf439b3a78e2d34efb7, type: 2}
@@ -1511,7 +1511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &660483284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3056,12 +3056,12 @@ MonoBehaviour:
   Title: {fileID: 1271152266}
   PPtr<Object>: {fileID: 1882385322}
   Titles:
-  - ISS-Bomb
+  - Junk Clearer
   - Junker
   - Push
   - Pull
   Bases:
-  - Destroys ISS
+  - Clears Junk it hits
   - Leaves Junk as it moves
   - Pushes Junk away as it moves
   - Pulls in Junk as it moves
