@@ -4769,5 +4769,25 @@
        id="path7480-2"
        d="m -980.03389,760.57397 34.46419,-0.47866 -1.1169,-11.64747 -35.74063,2.39332 z"
        style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\BackgroundObj_CometMove.png"
+       y="-573.63782"
+       x="1497.7142"
+       height="202"
+       width="202"
+       id="rect5270"
+       style="opacity:0.5;fill:#87decd;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1" />
+    <rect
+       style="opacity:0.5;fill:#87de87;fill-opacity:1;stroke:none;stroke-width:3;stroke-opacity:1"
+       id="rect5272"
+       width="202"
+       height="202"
+       x="1497.7142"
+       y="-792.20923"
+       inkscape:export-filename="C:\Users\Peter\Documents\GitHub\BrainsEden2015\3 Main Project\BrainsEden2015\Assets\ModelsAndArt\2D\BackgroundObj_UFOMove.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
