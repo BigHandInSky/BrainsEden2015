@@ -6,8 +6,8 @@ public class ChangeRocket : MonoBehaviour
     private PlayerTarget m_ShootComp;
     [SerializeField] private bool m_IsRed;
     [SerializeField] private LastFiredMissileText m_TextComp;
-    private int LastRocket = 1;	
-
+    private int LastRocket = 1;
+    private bool Changed = false;
 
     void Start()
     {
@@ -16,6 +16,9 @@ public class ChangeRocket : MonoBehaviour
 
     public void UIChangeRocket()
     {
+        if (Changed)
+            return;
+
         LastRocket++;
 
         if (LastRocket == 4)
@@ -62,13 +65,17 @@ public class ChangeRocket : MonoBehaviour
         if (!m_ShootComp.enabled)
             return;
 
-        if (m_IsRed && Input.GetAxis("Red Player Change Rocket") == 1f) 
-		{
-            UIChangeRocket();
-		}
-        else if (!m_IsRed && Input.GetAxis("Blue Player Change Rocket") == 1f)
+        if (m_IsRed && Input.GetAxis("Red Player Change Rocket") > 0f)
         {
             UIChangeRocket();
+            Changed = true;
 		}
+        else if (!m_IsRed && Input.GetAxis("Blue Player Change Rocket") > 0f)
+        {
+            UIChangeRocket();
+            Changed = true;
+        }
+        else if (Changed)
+            Changed = false;
 	}
 }
