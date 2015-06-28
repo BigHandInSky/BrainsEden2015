@@ -38,11 +38,9 @@ public class Manager_Audio : MonoBehaviour
 
     public enum EffectsType
     {
-        Button,
         Explosion,
 		Shoot,
-		Woosh,
-		Damage,
+		Button,
 		MakeDebris
     }
 
@@ -60,19 +58,13 @@ public class Manager_Audio : MonoBehaviour
 
         switch (_clipType)
         {
-	        case EffectsType.Button:
-	            _selected = 0;
-	            break;
 			case EffectsType.Explosion:
 				_selected = Random.Range(0,2);
 				break;
 			case EffectsType.Shoot:
 				_selected = 3;
 				break;
-			case EffectsType.Woosh:
-				_selected = 3;
-				break;
-			case EffectsType.Damage:
+			case EffectsType.Button:
 				_selected = 4;
 				break;
 			case EffectsType.MakeDebris:
