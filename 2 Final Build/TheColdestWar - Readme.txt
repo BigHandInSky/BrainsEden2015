@@ -21,6 +21,8 @@ Tablet:
  - Run the APK file and the game will install
 
 ///// CONTROLS
+Controls can be rebinded in the Unity Launcher if controllers are desired.
+
 PC:
  - Mouse over and click rocket icon to change rocket type
  - Red Player:

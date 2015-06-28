@@ -1,0 +1,93 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon(TM) R7 Graphics (ID=0x1309)
+    Vendor:   ATI
+    VRAM:     3028 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.108 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Peter\Documents\GitHub\BrainsEden2015\2 Final Build\TheColdestWar_NoMusic\TheColdestWar_NoMusic_Data\Managed\System.dll (this message is harmless)
+FirstScene
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.049411 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 518.
+Total: 0.492436 ms (FindLiveObjects: 0.048364 ms CreateObjectMapping: 0.029311 ms MarkObjects: 0.396685 ms  DeleteObjects: 0.016121 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2994 -> priority: 1 
+InfoScene
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.741150 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 664.
+Total: 0.676123 ms (FindLiveObjects: 0.066439 ms CreateObjectMapping: 0.056669 ms MarkObjects: 0.526633 ms  DeleteObjects: 0.024914 ms)
+
+MainMenu
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.906220 ms
+on disable player shoot
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+on disable player shoot
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1026.
+Total: 1.095769 ms (FindLiveObjects: 0.109918 ms CreateObjectMapping: 0.054226 ms MarkObjects: 0.902800 ms  DeleteObjects: 0.027357 ms)
+
+SpawnRocket
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+on disable player shoot
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+SpawnRocket
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+on disable player shoot
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.236971 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 813.
+Total: 0.918433 ms (FindLiveObjects: 0.081095 ms CreateObjectMapping: 0.050806 ms MarkObjects: 0.703969 ms  DeleteObjects: 0.081584 ms)
+
