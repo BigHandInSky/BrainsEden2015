@@ -85,6 +85,8 @@ public class GameStateHandler : MonoBehaviour
     [SerializeField] private ParticleSystem m_RedLauncherSelect;
     [SerializeField] private ParticleSystem m_BluLauncherSelect;
 
+    [SerializeField] private GameObject m_MenuButton;
+
     private float m_TurnSpaceLength = 8f;
 	private float m_CountdownLength = 8f;
 	
@@ -229,6 +231,7 @@ public class GameStateHandler : MonoBehaviour
 	private void EndGame()
 	{
 		StopAllCoroutines();
+        m_MenuButton.SetActive(false);
         m_TurnHeaderText.text = "";
 		m_TimerText.text = "";
 		CurrentState = GameState.End;
